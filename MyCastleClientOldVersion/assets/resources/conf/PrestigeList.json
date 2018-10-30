@@ -1,0 +1,62 @@
+{
+    "prestigeList": {
+        "isTyping": true,
+        "typeList": [
+            {
+                "type": "lang.prestigeType0",
+                "infoList": [
+                    {
+                        "name": "lang.preName0",
+                        "desc": "lang.preDesc0",
+                        "cost": 1000000000000000,
+                        "mType": 0,
+                        "pic": "UIMain.coinSprite",
+                        "pristige": 50,
+                        "cdTime": 86400
+                    },
+                    {
+                        "name": "lang.preName1",
+                        "desc": "lang.preDesc1",
+                        "cost": 100,
+                        "mType": 1,
+                        "pic": "UIMain.diamondSprite",
+                        "pristige": 100,
+                        "cdTime": 86400
+                    }
+                ]
+            },
+            {
+                "type": "lang.prestigeType1",
+                "infoList": [
+                    {
+                        "name": "lang.preSkillName0",
+                        "desc": "lang.preSkillDesc0",
+                        "cost": 5,
+                        "time": 180,
+                        "cdTime": 3600,
+                        "profit": 2,
+                        "pic": "SpPrestige.horn"
+                    },
+                    {
+                        "name": "lang.preSkillName1",
+                        "desc": "lang.preSkillDesc1",
+                        "cost": 10,
+                        "time": 180,
+                        "cdTime": 7200,
+                        "profit": 3,
+                        "pic": "SpPrestige.ads"
+                    },
+                    {
+                        "name": "lang.preSkillName2",
+                        "desc": "lang.preSkillDesc2",
+                        "cost": 30,
+                        "time": 180,
+                        "cdTime": 18800,
+                        "profit": 4,
+                        "pic": "SpPrestige.celebrity"
+                    }
+                ]
+            }
+        ]
+    }
+}

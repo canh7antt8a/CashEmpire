@@ -1,0 +1,34 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Shining",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.6833333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "props": {},
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": null
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "f4eb6b9f-ed66-46b1-8203-c8381340bcf6"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": null
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

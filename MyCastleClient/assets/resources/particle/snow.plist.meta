@@ -1,0 +1,15 @@
+{
+  "ver": "2.0.1",
+  "uuid": "1def5d8c-d428-49ab-8a1c-c785dc40a1a2",
+  "subMetas": {
+    "snow": {
+      "ver": "2.2.0",
+      "uuid": "71bad994-6aef-4d1a-aab3-7d9ed5fbd6d3",
+      "type": "raw",
+      "wrapMode": "clamp",
+      "filterMode": "bilinear",
+      "premultiplyAlpha": false,
+      "subMetas": {}
+    }
+  }
+}

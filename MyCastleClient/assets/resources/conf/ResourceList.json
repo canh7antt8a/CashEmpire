@@ -1,0 +1,1303 @@
+{
+    "targetList": [
+        {
+            "name": "pCurrency",
+            "idx": 0,
+            "mean": "0-金币"
+        },
+        {
+            "name": "pCurrency",
+            "idx": 1,
+            "mean": "1-钻石"
+        },
+        {
+            "name": "pCurrency",
+            "idx": 2,
+            "mean": "2-累充美金"
+        },
+        {
+            "name": "pScore",
+            "idx": 6,
+            "mean": "3-声望"
+        },
+        {
+            "name": "myFloors",
+            "idx": -1,
+            "mean": "4-楼层数也就是店铺数"
+        },
+        {
+            "name": "",
+            "idx": -1,
+            "mean": "5-"
+        },
+        {
+            "name": "myManagers",
+            "idx": -1,
+            "mean": "6-管家"
+        },
+        {
+            "name": "myBuildings",
+            "idx": -1,
+            "mean": "7-大楼外观"
+        },
+        {
+            "name": "myClothes",
+            "idx": -1,
+            "mean": "8-服饰"
+        },
+        {
+            "name": "myLicense",
+            "idx": -1,
+            "mean": "9-营业执照"
+        },
+        {
+            "name": "myPets",
+            "idx": -1,
+            "mean": "10-宠物"
+        }
+    ],
+    "achieveList": [
+        {
+            "name": "lang.aName0",
+            "desc": "lang.aDesc0",
+            "target": 0,
+            "num": [
+                1000000,
+                1000000000,
+                1000000000000
+            ],
+            "pic": [
+                "SpAchievement.0-0",
+                "SpAchievement.0-1",
+                "SpAchievement.0-2"
+            ],
+            "rTarget": [
+                1,
+                1,
+                1
+            ],
+            "rNum": [
+                50,
+                100,
+                200
+            ]
+        },
+        {
+            "name": "lang.aName1",
+            "desc": "lang.aDesc1",
+            "target": 3,
+            "num": [
+                1000,
+                10000,
+                100000
+            ],
+            "pic": [
+                "SpAchievement.1-0",
+                "SpAchievement.1-1",
+                "SpAchievement.1-2"
+            ],
+            "rTarget": [
+                1,
+                1,
+                1
+            ],
+            "rNum": [
+                50,
+                100,
+                200
+            ]
+        },
+        {
+            "name": "lang.aName2",
+            "desc": "lang.aDesc2",
+            "target": 4,
+            "num": [
+                3,
+                7,
+                12
+            ],
+            "pic": [
+                "SpAchievement.2-0",
+                "SpAchievement.2-1",
+                "SpAchievement.2-2"
+            ],
+            "rTarget": [
+                1,
+                1,
+                1
+            ],
+            "rNum": [
+                100,
+                250,
+                500
+            ]
+        },
+        {
+            "name": "lang.aName3",
+            "desc": "lang.aDesc3",
+            "target": 2,
+            "num": [
+                9.9,
+                99,
+                199
+            ],
+            "pic": [
+                "SpAchievement.3-0",
+                "SpAchievement.3-1",
+                "SpAchievement.3-2"
+            ],
+            "rTarget": [
+                7,
+                7,
+                6
+            ],
+            "rNum": [
+                1,
+                1,
+                1
+            ]
+        },
+        {
+            "name": "lang.aName4",
+            "desc": "lang.aDesc4",
+            "target": 6,
+            "num": [
+                1,
+                3,
+                10
+            ],
+            "pic": [
+                "SpAchievement.4-0",
+                "SpAchievement.4-1",
+                "SpAchievement.4-2"
+            ],
+            "rTarget": [
+                1,
+                1,
+                1
+            ],
+            "rNum": [
+                100,
+                250,
+                500
+            ]
+        }
+    ],
+    "managerList": [
+        [
+            {
+                "pic": "UIManager.manager0",
+                "name": "Aaron",
+                "desc": "lang.mDesc0",
+                "sDesc": "lang.mSDesc0",
+                "sPic": "UIManager.resMoney"
+            },
+            {
+                "pic": "UIManager.manager1",
+                "name": "Alex",
+                "desc": "lang.mDesc1",
+                "sDesc": "lang.mSDesc1",
+                "sPic": "UIManager.resMoney"
+            }
+        ],
+        [
+            {
+                "pic": "UIManager.manager10",
+                "name": "George",
+                "desc": "lang.mDesc10",
+                "sDesc": "lang.mSDesc10",
+                "sPic": "UIManager.desTime"
+            },
+            {
+                "pic": "UIManager.manager11",
+                "name": "Green",
+                "desc": "lang.mDesc11",
+                "sDesc": "lang.mSDesc11",
+                "sPic": "UIManager.desTime"
+            }
+        ],
+        [
+            {
+                "pic": "UIManager.manager20",
+                "name": "Oliver",
+                "desc": "lang.mDesc20",
+                "sDesc": "lang.mSDesc20",
+                "sPic": "UIManager.desCost"
+            },
+            {
+                "pic": "UIManager.manager21",
+                "name": "Paul",
+                "desc": "lang.mDesc21",
+                "sDesc": "lang.mSDesc21",
+                "sPic": "UIManager.desCost"
+            }
+        ]
+    ],
+    "popViewList": [
+        "ShopView",
+        "ManagerView",
+        "SettingView",
+        "AchieveView",
+        "HomeView",
+        "RankView",
+        "GiftView",
+        "FbFail",
+        "PrestigeView",
+        "RechargeView",
+        "InfoView",
+        "TrainManagerView",
+        "StoreSelectView",
+        "OfflineProfitView"
+    ],
+    "storeList": [
+        {
+            "name": "Restaurant",
+            "pic": "UIStore.restaurant",
+            "type": 0
+        },
+        {
+            "name": "bookstore",
+            "pic": "UIStore.bookstore",
+            "type": 1
+        },
+        {
+            "name": "couture",
+            "pic": "UIStore.couture",
+            "type": 2
+        },
+        {
+            "name": "CarStore",
+            "pic": "UIStore.carStore",
+            "type": 3
+        },
+        {
+            "name": "Bar",
+            "pic": "UIStore.bar",
+            "type": 4
+        },
+        {
+            "name": "ElectricStore",
+            "pic": "UIStore.electricStore",
+            "type": 5
+        },
+        {
+            "name": "JewelryStore",
+            "pic": "UIStore.jewelryStore",
+            "type": 6
+        },
+        {
+            "name": "ShoeStore",
+            "pic": "UIStore.shoeStore",
+            "type": 7
+        },
+        {
+            "name": "Gallery",
+            "pic": "UIStore.gallery",
+            "type": 8
+        },
+        {
+            "name": "Office",
+            "pic": "UIStore.office",
+            "type": 9
+        }
+    ],
+    "firstData": [
+        {
+            "name": "pCurrency",
+            "array": [
+                200000000000000000000000000000000000000,
+                5000000,
+                0,
+                0
+            ]
+        },
+        {
+            "name": "pScore",
+            "array": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "name": "pProp",
+            "array": []
+        },
+        {
+            "name": "pAchievement",
+            "array": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "name": "myLicense",
+            "array": [
+                -1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "name": "preSkill",
+            "array": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "name": "gainPre",
+            "array": [
+                0
+            ]
+        },
+        {
+            "name": "homeStore",
+            "array": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "name": "goodSkills",
+            "array": [
+                [
+                    -1,
+                    -1
+                ],
+                [
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1
+                ],
+                [
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1
+                ]
+            ]
+        },
+        {
+            "name": "goodSkillsTime",
+            "array": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        }
+    ],
+    "initData": [
+        "myFloors",
+        "myFloorsTime",
+        "myManagers",
+
+        "pCurrency",
+        "pScore",
+        "pProp",
+        "pAchievement",
+        "gainPre",
+        "homeStore",
+        "myLicense",
+        "preSkill",
+        "goodSkills",
+        "goodSkillsTime"
+    ],
+    "floorLevelList": [
+        10,
+        35,
+        85,
+        185,
+        385
+    ],
+    "homeList": {
+        "isTyping": true,
+        "typeList": [
+            "lang.homeType0",
+            "lang.homeType1",
+            "lang.homeType1"
+        ]
+    },
+    "rechargeList": {
+        "isTyping": true,
+        "typeList": [
+            {
+                "type": "currencyList",
+                "infoList": [
+                    {
+                        "name": "lang.rechargeCur0",
+                        "desc": "lang.rechargeCur0",
+                        "num": 300,
+                        "price": 1.99,
+                        "type": 2,
+                        "pic": "SpGoods.sDiamond",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": 1001
+                    },
+                    {
+                        "name": "lang.rechargeCur1",
+                        "desc": "lang.rechargeCur1",
+                        "num": 900,
+                        "price": 5.99,
+                        "type": 2,
+                        "pic": "SpGoods.mDiamond",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": 1002
+                    },
+                    {
+                        "name": "lang.rechargeCur2",
+                        "desc": "lang.rechargeCur2",
+                        "num": 1800,
+                        "price": 10.99,
+                        "type": 2,
+                        "pic": "SpGoods.lDiamond",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": 1003
+                    },
+                    {
+                        "name": "lang.rechargeCur3",
+                        "desc": "lang.rechargeCur3",
+                        "num": 3600,
+                        "price": 20.99,
+                        "type": 2,
+                        "pic": "SpGoods.xlDiamond",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": 1004
+                    },
+                    {
+                        "name": "lang.rechargeCur4",
+                        "desc": "lang.rechargeCur4",
+                        "num": 9000,
+                        "price": 51.99,
+                        "type": 2,
+                        "pic": "SpGoods.xxlDiamond",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": 1005
+                    },
+                    {
+                        "name": "lang.rechargeCur5",
+                        "desc": "lang.rechargeCur5",
+                        "num": 18000,
+                        "price": 100.99,
+                        "type": 2,
+                        "pic": "SpGoods.xxxlDiamond",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": 1006
+                    }
+                ]
+            },
+            {
+                "type": "giftList",
+                "infoList": [
+                    {
+                        "name": "lang.exitText",
+                        "desc": "lang.exitText",
+                        "num": 18000,
+                        "price": 100.99,
+                        "type": 2,
+                        "pic": "SpGoods.gift0",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": ""
+                    },
+                    {
+                        "name": "lang.exitText",
+                        "desc": "lang.exitText",
+                        "num": 18000,
+                        "price": 100.99,
+                        "type": 2,
+                        "pic": "SpGoods.gift1",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": ""
+                    },
+                    {
+                        "name": "lang.exitText",
+                        "desc": "lang.exitText",
+                        "num": 18000,
+                        "price": 100.99,
+                        "type": 2,
+                        "pic": "SpGoods.gift2",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "prestigeList": {
+        "isTyping": true,
+        "typeList": [
+            {
+                "type": "lang.prestigeType0",
+                "infoList": [
+                    {
+                        "name": "lang.preName0",
+                        "desc": "lang.preDesc0",
+                        "cost": 1000000000000000,
+                        "mType": 0,
+                        "pic": "UIMain.coinSprite",
+                        "pristige": 500,
+                        "cdTime": 86400
+                    },
+                    {
+                        "name": "lang.preName1",
+                        "desc": "lang.preDesc1",
+                        "cost": 50,
+                        "mType": 1,
+                        "pic": "UIMain.diamondSprite",
+                        "pristige": 1000
+                    }
+                ]
+            },
+            {
+                "type": "lang.prestigeType1",
+                "infoList": [
+                    {
+                        "name": "lang.preSkillName0",
+                        "desc": "lang.preSkillDesc0",
+                        "cost": 500,
+                        "time": 180,
+                        "cdTime": 3600,
+                        "profit": 2,
+                        "pic": "SpPrestige.horn"
+                    },
+                    {
+                        "name": "lang.preSkillName1",
+                        "desc": "lang.preSkillDesc1",
+                        "cost": 1000,
+                        "time": 180,
+                        "cdTime": 7200,
+                        "profit": 3,
+                        "pic": "SpPrestige.ads"
+                    },
+                    {
+                        "name": "lang.preSkillName2",
+                        "desc": "lang.preSkillDesc2",
+                        "cost": 3000,
+                        "time": 180,
+                        "cdTime": 18800,
+                        "profit": 4,
+                        "pic": "SpPrestige.celebrity"
+                    }
+                ]
+            }
+        ]
+    },
+    "shopInfoList": {
+        "isTyping": true,
+        "typeList": [
+            {
+                "type": "lang.shopType0",
+                "infoList": [
+                    {
+                        "name": "lang.shopPermanentBuff0",
+                        "price": 5.99,
+                        "type": 2,
+                        "desc": "lang.shopPermanentBuffDesc0",
+                        "pic": "SpProp.capital",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff1",
+                        "price": 200,
+                        "type": 1,
+                        "desc": "lang.shopPermanentBuffDesc1",
+                        "pic": "SpProp.accounting",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff2",
+                        "price": 100,
+                        "type": 1,
+                        "desc": "lang.shopPermanentBuffDesc2",
+                        "pic": "SpProp.rookieCEO",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff3",
+                        "price": 500,
+                        "type": 1,
+                        "desc": "lang.shopPermanentBuffDesc3",
+                        "pic": "SpProp.noviceCEO",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff4",
+                        "price": 2000,
+                        "type": 1,
+                        "desc": "lang.shopPermanentBuffDesc4",
+                        "pic": "SpProp.intermediateCEO",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 2,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff5",
+                        "price": 20.99,
+                        "type": 2,
+                        "desc": "lang.shopPermanentBuffDesc5",
+                        "pic": "SpProp.advancedCEO",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": "",
+                        "effect": 3,
+                        "kind": 1
+                    }
+                ]
+            },
+            {
+                "type": "lang.shopType1",
+                "infoList": [
+                    {
+                        "name": "lang.shopTransientBuff0",
+                        "price": 80,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc0",
+                        "pic": "SpProp.juniorBankCard",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopTransientBuff1",
+                        "price": 200,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc1",
+                        "pic": "SpProp.intermediateBankCard",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopTransientBuff2",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc2",
+                        "pic": "SpProp.seniorBankCard",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 2,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopTransientBuff3",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc3",
+                        "pic": "SpProp.lotteryTickets",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopTransientBuff4",
+                        "price": 2000,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc4",
+                        "pic": "SpProp.lotto",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopTransientBuff5",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc5",
+                        "pic": "SpProp.renamingCard",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 2
+                    },
+                    {
+                        "name": "lang.shopTransientBuff6",
+                        "price": 70,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc6",
+                        "pic": "SpProp.sEnergyDrinks",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 3
+                    },
+                    {
+                        "name": "lang.shopTransientBuff7",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc7",
+                        "pic": "SpProp.mEnergyDrinks",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 3
+                    },
+                    {
+                        "name": "lang.shopTransientBuff8",
+                        "price": 400,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc8",
+                        "pic": "SpProp.lEnergyDrinks",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 2,
+                        "kind": 3
+                    },
+                    {
+                        "name": "lang.shopTransientBuff9",
+                        "price": 2700,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc9",
+                        "pic": "SpProp.salesPromotion",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 4
+                    },
+                    {
+                        "name": "lang.shopTransientBuff10",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc10",
+                        "pic": "SpProp.sGooChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 5
+                    },
+                    {
+                        "name": "lang.shopTransientBuff11",
+                        "price": 1500,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc11",
+                        "pic": "SpProp.mGooChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 5
+                    },
+                    {
+                        "name": "lang.shopTransientBuff12",
+                        "price": 1800,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc12",
+                        "pic": "SpProp.lGooChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 2,
+                        "kind": 5
+                    },
+                    {
+                        "name": "lang.shopTransientBuff13",
+                        "price": 2400,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc13",
+                        "pic": "SpProp.fightChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 6
+                    },
+                    {
+                        "name": "lang.shopTransientBuff14",
+                        "price": 3000,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc14",
+                        "pic": "SpProp.magerChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 7
+                    }
+                ]
+            },
+            {
+                "type": "lang.shopType2",
+                "infoList": [
+                    {
+                        "name": "Restaurant",
+                        "price": 3000,
+                        "desc": "Restaurant",
+                        "idx": 0,
+                        "type": 0,
+                        "pic": "UIStore.restaurant",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "Bookstore",
+                        "price": 3000,
+                        "desc": "Bookstore",
+                        "idx": 1,
+                        "type": 0,
+                        "pic": "UIStore.bookstore",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "Couture",
+                        "price": 3000,
+                        "desc": "Couture",
+                        "idx": 2,
+                        "type": 0,
+                        "pic": "UIStore.couture",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "CarStore",
+                        "price": 3000,
+                        "desc": "CarStore",
+                        "idx": 3,
+                        "type": 0,
+                        "pic": "UIStore.carStore",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "Bar",
+                        "price": 3000,
+                        "desc": "Bar",
+                        "idx": 4,
+                        "type": 0,
+                        "pic": "UIStore.bar",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "ElectricStore",
+                        "price": 3000,
+                        "desc": "ElectricStore",
+                        "idx": 5,
+                        "type": 0,
+                        "pic": "UIStore.electricStore",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "JewelryStore",
+                        "price": 3000,
+                        "desc": "JewelryStore",
+                        "idx": 6,
+                        "type": 0,
+                        "pic": "UIStore.jewelryStore",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "ShoeStore",
+                        "price": 3000,
+                        "desc": "ShoeStore",
+                        "idx": 7,
+                        "type": 0,
+                        "pic": "UIStore.shoeStore",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "Gallery",
+                        "price": 3000,
+                        "desc": "Gallery",
+                        "idx": 8,
+                        "type": 0,
+                        "pic": "UIStore.gallery",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "Office",
+                        "price": 3000,
+                        "desc": "Office",
+                        "idx": 9,
+                        "type": 0,
+                        "pic": "UIStore.office",
+                        "tPic": "UIMain.coinSprite",
+                        "effect": 0,
+                        "kind": 0
+                    }
+                ]
+            }
+        ]
+    },
+    "goodSkillsEffect": [
+        [
+            [
+                {
+                    "time": -1,
+                    "per": 1.2
+                },
+                {
+                    "time": -1,
+                    "per": 2
+                }
+            ],
+            [
+                {
+                    "time": -1,
+                    "per": 1.5
+                },
+                {
+                    "time": -1,
+                    "per": 2
+                },
+                {
+                    "time": -1,
+                    "per": 2.5
+                },
+                {
+                    "time": -1,
+                    "per": 3
+                }
+            ]
+        ],
+        [
+            [
+                {
+                    "time": 0,
+                    "per": 1.1
+                },
+                {
+                    "time": 0,
+                    "per": 1.3
+                },
+                {
+                    "time": 0,
+                    "per": 1.5
+                }
+            ],
+            [
+                {
+                    "time": 2,
+                    "per": 20
+                },
+                {
+                    "time": 50,
+                    "per": 150
+                }
+            ],
+            [
+                {
+                    "time": 0,
+                    "per": 0
+                }
+            ],
+            [
+                {
+                    "time": 3600,
+                    "per": 2
+                },
+                {
+                    "time": 28800,
+                    "per": 2
+                },
+                {
+                    "time": 43200,
+                    "per": 2
+                }
+            ],
+            [
+                {
+                    "time": 604800,
+                    "per": 4
+                }
+            ],
+            [
+                {
+                    "time": 3600,
+                    "per": 10
+                },
+                {
+                    "time": 28800,
+                    "per": 10
+                },
+                {
+                    "time": 43200,
+                    "per": 10
+                }
+            ],
+            [
+                {
+                    "time": 7200,
+                    "per": 20
+                }
+            ],
+            [
+                {
+                    "time": 3600,
+                    "per": 50
+                }
+            ]
+        ]
+    ],
+    "unitList": [
+        {
+            "unit": ""
+        },
+        {
+            "unit": "K"
+        },
+        {
+            "unit": "M"
+        },
+        {
+            "unit": "B"
+        },
+        {
+            "unit": "T"
+        },
+        {
+            "unit": "AA"
+        },
+        {
+            "unit": "AB"
+        },
+        {
+            "unit": "AC"
+        },
+        {
+            "unit": "AD"
+        },
+        {
+            "unit": "AE"
+        },
+        {
+            "unit": "AF"
+        },
+        {
+            "unit": "AG"
+        },
+        {
+            "unit": "AH"
+        },
+        {
+            "unit": "AI"
+        },
+        {
+            "unit": "AJ"
+        },
+        {
+            "unit": "AK"
+        },
+        {
+            "unit": "AL"
+        },
+        {
+            "unit": "AM"
+        },
+        {
+            "unit": "AN"
+        },
+        {
+            "unit": "AO"
+        },
+        {
+            "unit": "AP"
+        },
+        {
+            "unit": "AQ"
+        },
+        {
+            "unit": "AR"
+        },
+        {
+            "unit": "AS"
+        },
+        {
+            "unit": "AT"
+        },
+        {
+            "unit": "AU"
+        },
+        {
+            "unit": "AV"
+        },
+        {
+            "unit": "AW"
+        },
+        {
+            "unit": "AX"
+        },
+        {
+            "unit": "AY"
+        },
+        {
+            "unit": "AZ"
+        },
+        {
+            "unit": "BA"
+        },
+        {
+            "unit": "BB"
+        },
+        {
+            "unit": "BC"
+        },
+        {
+            "unit": "BD"
+        },
+        {
+            "unit": "BE"
+        },
+        {
+            "unit": "BF"
+        },
+        {
+            "unit": "BG"
+        },
+        {
+            "unit": "BH"
+        },
+        {
+            "unit": "BI"
+        },
+        {
+            "unit": "BJ"
+        },
+        {
+            "unit": "BK"
+        },
+        {
+            "unit": "BL"
+        },
+        {
+            "unit": "BM"
+        },
+        {
+            "unit": "BN"
+        },
+        {
+            "unit": "BO"
+        },
+        {
+            "unit": "BP"
+        },
+        {
+            "unit": "BQ"
+        },
+        {
+            "unit": "BR"
+        },
+        {
+            "unit": "BS"
+        },
+        {
+            "unit": "BT"
+        },
+        {
+            "unit": "BU"
+        },
+        {
+            "unit": "BV"
+        },
+        {
+            "unit": "BW"
+        },
+        {
+            "unit": "BX"
+        },
+        {
+            "unit": "BY"
+        },
+        {
+            "unit": "BZ"
+        }
+    ]
+}

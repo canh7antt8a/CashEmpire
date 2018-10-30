@@ -1,0 +1,47 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Car0",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 6,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "props": {
+      "x": [
+        {
+          "frame": 0,
+          "value": -602
+        },
+        {
+          "frame": 3.066666666666667,
+          "value": 804
+        },
+        {
+          "frame": 3.9833333333333334,
+          "value": 804
+        },
+        {
+          "frame": 6,
+          "value": -728
+        }
+      ],
+      "scaleX": [
+        {
+          "frame": 0,
+          "value": 1
+        },
+        {
+          "frame": 3.066666666666667,
+          "value": 1
+        },
+        {
+          "frame": 3.9833333333333334,
+          "value": -1
+        }
+      ]
+    }
+  },
+  "events": []
+}

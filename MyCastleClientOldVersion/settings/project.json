@@ -1,0 +1,30 @@
+{
+  "cocos-analytics": {
+    "appID": "687321083",
+    "appSecret": "e06533166df0daac1faf65f2b9bf8355",
+    "channel": "facebook",
+    "enable": true,
+    "version": "1.0.0"
+  },
+  "collision-matrix": [
+    [
+      true
+    ]
+  ],
+  "design-resolution-height": 640,
+  "design-resolution-width": 960,
+  "excluded-modules": [],
+  "fit-height": true,
+  "fit-width": false,
+  "group-list": [
+    "default"
+  ],
+  "simulator-orientation": false,
+  "simulator-resolution": {
+    "height": 640,
+    "width": 960
+  },
+  "use-customize-simulator": false,
+  "use-project-simulator-setting": false,
+  "start-scene": "current"
+}

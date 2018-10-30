@@ -1,0 +1,52 @@
+{
+    "guideList": [
+        {
+            "talk": "First, we must have a store.",
+            "target": "Canvas/MainView/Building/ScrollView/view/content/Floor0/OpenShop/AlgamSprite/OpenBtn",
+            "view": null,
+            "idx": 0
+        },
+        {
+            "talk": "To crazy? Hire a manager to help you.",
+            "target": "Canvas/MainView/UIView/Bottom/Btns/Update",
+            "view": null,
+            "idx": 1
+        },
+        {
+            "talk": "Upgrade to increase your income.",
+            "target": "Canvas/MainView/Building/ScrollView/view/content/Floor0/Bottom/UpShop/Buy",
+            "view": null,
+            "idx": 2
+        },
+        {
+            "talk": "Click to upgrade you manager",
+            "target": "Canvas/WorkerView/Bg/SelectView/view/content/Worker0/Train",
+            "view": "WorkerView",
+            "idx": 3
+        },
+        {
+            "talk": "Great!Achievement reached!It can multiply our substantialy.",
+            "target": null,
+            "view": "AchieveView",
+            "idx": 4
+        },
+        {
+            "talk": "Here can speed up to make money~",
+            "target": "Canvas/ShopView/Bg/GoodView/ScrollView/view/content/Content1/Good6/Buy",
+            "view": "ShopView",
+            "idx": 5
+        },
+        {
+            "talk": "Good luck to you!",
+            "target": "Canvas/CircleView/Bg/GoSpin",
+            "view": "CircleView",
+            "idx": 6
+        },
+        {
+            "talk": "To hard to upgrade?\nJust rebuild your building!\nYou will be much more easier to earn the money! ",
+            "target": "Canvas/MainView/UIView/Bottom/Btns/Reborn",
+            "view": null,
+            "idx": 7
+        }
+    ]
+}

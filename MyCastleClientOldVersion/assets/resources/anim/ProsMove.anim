@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "ProsMove",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.33,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "props": {
+      "x": [
+        {
+          "frame": 0,
+          "value": 80
+        },
+        {
+          "frame": 0.21666666666666667,
+          "value": 252.1729169377541
+        },
+        {
+          "frame": 0.3333333333333333,
+          "value": 305.4
+        }
+      ]
+    }
+  },
+  "events": []
+}

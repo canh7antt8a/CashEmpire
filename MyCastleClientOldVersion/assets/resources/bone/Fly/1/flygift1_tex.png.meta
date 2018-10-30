@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "ad9461ee-1c14-4162-a77d-357709ba12c6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "flygift1_tex": {
+      "ver": "1.0.3",
+      "uuid": "0ee21a78-eb33-4c10-a895-7c3723b90039",
+      "rawTextureUuid": "ad9461ee-1c14-4162-a77d-357709ba12c6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 112,
+      "height": 128,
+      "rawWidth": 115,
+      "rawHeight": 131,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

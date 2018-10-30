@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "0430e4f5-cec4-4b0f-9f89-e3fb488acb1f",
+  "atlasJson": "{\"imagePath\":\"M3_tex.png\",\"width\":264,\"height\":236,\"name\":\"M3\",\"SubTexture\":[{\"width\":149,\"y\":1,\"height\":186,\"name\":\"图层_2\",\"x\":1},{\"width\":110,\"y\":1,\"height\":130,\"name\":\"图层_3\",\"x\":152},{\"width\":32,\"y\":133,\"height\":101,\"name\":\"图层_1\",\"x\":152}]}",
+  "texture": "8d61e70d-6ef2-431a-99e1-3787465556ea",
+  "subMetas": {}
+}

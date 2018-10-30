@@ -1,0 +1,25 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "CloudMove0",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 30.05,
+  "sample": 20,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "props": {
+      "x": [
+        {
+          "frame": 0,
+          "value": -487
+        },
+        {
+          "frame": 30.05,
+          "value": 682
+        }
+      ]
+    }
+  },
+  "events": []
+}

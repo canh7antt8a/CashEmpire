@@ -1,0 +1,36 @@
+{
+    "firstData": [
+        {
+            "name": "myFloors",
+            "array": []
+        },
+        {
+            "name": "myFloorsTime",
+            "array": []
+        },
+        {
+            "name": "myManagers",
+            "array": []
+        },
+        {
+            "name": "BornTimes",
+            "deVal": 0
+        },
+        {
+            "name": "TotalIncome",
+            "deVal": 0
+        },
+        {
+            "name": "BornIncome",
+            "deVal": 0
+        },
+        {
+            "name": "AchieveLevel",
+            "deVal": 0
+        },
+        {
+            "name": "AdBuffTime",
+            "deVal": -1
+        }
+    ]
+}

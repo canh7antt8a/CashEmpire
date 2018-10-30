@@ -1,0 +1,248 @@
+{
+    "shopInfoList": {
+        "isTyping": true,
+        "typeList": [
+            {
+                "type": "lang.shopType0",
+                "infoList": [
+                    {
+                        "name": "lang.shopPermanentBuff0",
+                        "price": 5.99,
+                        "type": 2,
+                        "desc": "lang.shopPermanentBuffDesc0",
+                        "pic": "SpProp.capital",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff1",
+                        "price": 200,
+                        "type": 1,
+                        "desc": "lang.shopPermanentBuffDesc1",
+                        "pic": "SpProp.accounting",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff2",
+                        "price": 100,
+                        "type": 1,
+                        "desc": "lang.shopPermanentBuffDesc2",
+                        "pic": "SpProp.rookieCEO",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff3",
+                        "price": 500,
+                        "type": 1,
+                        "desc": "lang.shopPermanentBuffDesc3",
+                        "pic": "SpProp.noviceCEO",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff4",
+                        "price": 2000,
+                        "type": 1,
+                        "desc": "lang.shopPermanentBuffDesc4",
+                        "pic": "SpProp.intermediateCEO",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 2,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopPermanentBuff5",
+                        "price": 20.99,
+                        "type": 2,
+                        "desc": "lang.shopPermanentBuffDesc5",
+                        "pic": "SpProp.advancedCEO",
+                        "tPic": "UIMain.usdSprite",
+                        "proId": "",
+                        "effect": 3,
+                        "kind": 1
+                    }
+                ]
+            },
+            {
+                "type": "lang.shopType1",
+                "infoList": [
+                    {
+                        "name": "lang.shopTransientBuff0",
+                        "price": 80,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc0",
+                        "pic": "SpProp.juniorBankCard",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopTransientBuff1",
+                        "price": 200,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc1",
+                        "pic": "SpProp.intermediateBankCard",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopTransientBuff2",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc2",
+                        "pic": "SpProp.seniorBankCard",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 2,
+                        "kind": 0
+                    },
+                    {
+                        "name": "lang.shopTransientBuff3",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc3",
+                        "pic": "SpProp.lotteryTickets",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopTransientBuff4",
+                        "price": 2000,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc4",
+                        "pic": "SpProp.lotto",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 1
+                    },
+                    {
+                        "name": "lang.shopTransientBuff5",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc5",
+                        "pic": "SpProp.renamingCard",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 2
+                    },
+                    {
+                        "name": "lang.shopTransientBuff6",
+                        "price": 70,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc6",
+                        "pic": "SpProp.sEnergyDrinks",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 3
+                    },
+                    {
+                        "name": "lang.shopTransientBuff7",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc7",
+                        "pic": "SpProp.mEnergyDrinks",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 3
+                    },
+                    {
+                        "name": "lang.shopTransientBuff8",
+                        "price": 400,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc8",
+                        "pic": "SpProp.lEnergyDrinks",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 2,
+                        "kind": 3
+                    },
+                    {
+                        "name": "lang.shopTransientBuff9",
+                        "price": 2700,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc9",
+                        "pic": "SpProp.salesPromotion",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 4
+                    },
+                    {
+                        "name": "lang.shopTransientBuff10",
+                        "price": 300,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc10",
+                        "pic": "SpProp.sGooChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 5
+                    },
+                    {
+                        "name": "lang.shopTransientBuff11",
+                        "price": 1500,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc11",
+                        "pic": "SpProp.mGooChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 1,
+                        "kind": 5
+                    },
+                    {
+                        "name": "lang.shopTransientBuff12",
+                        "price": 1800,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc12",
+                        "pic": "SpProp.lGooChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 2,
+                        "kind": 5
+                    },
+                    {
+                        "name": "lang.shopTransientBuff13",
+                        "price": 2400,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc13",
+                        "pic": "SpProp.fightChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 6
+                    },
+                    {
+                        "name": "lang.shopTransientBuff14",
+                        "price": 3000,
+                        "type": 1,
+                        "desc": "lang.shopTransientBuffDesc14",
+                        "pic": "SpProp.magerChicken",
+                        "tPic": "UIMain.diamondSprite",
+                        "proId": "",
+                        "effect": 0,
+                        "kind": 7
+                    }
+                ]
+            }
+        ]
+    }
+}

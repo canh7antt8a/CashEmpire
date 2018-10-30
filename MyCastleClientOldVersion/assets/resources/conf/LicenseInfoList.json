@@ -1,0 +1,114 @@
+{
+    "licences": [
+        {
+            "name": "Bookstore",
+            "price": 3000,
+            "desc": "Bookstore",
+            "idx": 1,
+            "type": 0,
+            "pic": "UIStore.bookstore",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "Restaurant",
+            "price": 3000,
+            "desc": "Restaurant",
+            "idx": 0,
+            "type": 0,
+            "pic": "UIStore.restaurant",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "Couture",
+            "price": 3000,
+            "desc": "Couture",
+            "idx": 2,
+            "type": 0,
+            "pic": "UIStore.couture",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "ShoeStore",
+            "price": 3000,
+            "desc": "ShoeStore",
+            "idx": 7,
+            "type": 0,
+            "pic": "UIStore.shoeStore",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "ElectricStore",
+            "price": 3000,
+            "desc": "ElectricStore",
+            "idx": 5,
+            "type": 0,
+            "pic": "UIStore.electricStore",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "Gallery",
+            "price": 3000,
+            "desc": "Gallery",
+            "idx": 8,
+            "type": 0,
+            "pic": "UIStore.gallery",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "JewelryStore",
+            "price": 3000,
+            "desc": "JewelryStore",
+            "idx": 6,
+            "type": 0,
+            "pic": "UIStore.jewelryStore",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "Office",
+            "price": 3000,
+            "desc": "Office",
+            "idx": 9,
+            "type": 0,
+            "pic": "UIStore.office",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "CarStore",
+            "price": 3000,
+            "desc": "CarStore",
+            "idx": 3,
+            "type": 0,
+            "pic": "UIStore.carStore",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        },
+        {
+            "name": "Bar",
+            "price": 3000,
+            "desc": "Bar",
+            "idx": 4,
+            "type": 0,
+            "pic": "UIStore.bar",
+            "tPic": "UIMain.coinSprite",
+            "effect": 0,
+            "kind": 0
+        }
+    ]
+}

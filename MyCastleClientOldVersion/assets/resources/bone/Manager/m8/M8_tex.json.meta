@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "e43ae6dd-5a13-45be-9f77-30b9a306bdb1",
+  "atlasJson": "{\"SubTexture\":[{\"width\":75,\"y\":1,\"height\":169,\"name\":\"图层_7\",\"x\":161},{\"width\":158,\"y\":1,\"height\":133,\"name\":\"图层_8\",\"x\":1}],\"width\":238,\"height\":172,\"name\":\"M8\",\"imagePath\":\"M8_tex.png\"}",
+  "texture": "1c94e7dc-13df-45db-81a5-60d713d76702",
+  "subMetas": {}
+}

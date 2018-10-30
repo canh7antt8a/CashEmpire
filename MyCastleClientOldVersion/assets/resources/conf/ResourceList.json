@@ -1,0 +1,382 @@
+{
+    "workerPriceList": [
+        3,
+        15000,
+        100000,
+        500000,
+        1200000,
+        10000000,
+        110110112,
+        550550528,
+        10000000000,
+        100000000000
+    ],
+    "managerList": [
+        {
+            "pic": "UIManager.m0",
+            "name": "Aaron",
+            "desc": "lang.mDesc0",
+            "sDesc": "lang.mSDesc0",
+            "sPic": "UIManager.resMoney",
+            "type": 0
+        },
+        {
+            "pic": "UIManager.m1",
+            "name": "Arthur",
+            "desc": "lang.mDesc1",
+            "sDesc": "lang.mSDesc1",
+            "sPic": "UIManager.desCost",
+            "type": 2
+        },
+        {
+            "pic": "UIManager.m2",
+            "name": "Alex",
+            "desc": "lang.mDesc2",
+            "sDesc": "lang.mSDesc2",
+            "sPic": "UIManager.desTime",
+            "type": 1
+        },
+        {
+            "pic": "UIManager.m3",
+            "name": "Bill",
+            "desc": "lang.mDesc3",
+            "sDesc": "lang.mSDesc3",
+            "sPic": "UIManager.desTime",
+            "type": 1
+        },
+        {
+            "pic": "UIManager.m4",
+            "name": "Brian",
+            "desc": "lang.mDesc4",
+            "sDesc": "lang.mSDesc4",
+            "sPic": "UIManager.resMoney",
+            "type": 0
+        },
+        {
+            "pic": "UIManager.m5",
+            "name": "Bruce",
+            "desc": "lang.mDesc5",
+            "sDesc": "lang.mSDesc5",
+            "sPic": "UIManager.desCost",
+            "type": 2
+        },
+        {
+            "pic": "UIManager.m6",
+            "name": "Chris",
+            "desc": "lang.mDesc6",
+            "sDesc": "lang.mSDesc6",
+            "sPic": "UIManager.resMoney",
+            "type": 0
+        },
+        {
+            "pic": "UIManager.m7",
+            "name": "Denny",
+            "desc": "lang.mDesc7",
+            "sDesc": "lang.mSDesc7",
+            "sPic": "UIManager.desTime",
+            "type": 0
+        },
+        {
+            "pic": "UIManager.m8",
+            "name": "Tommy",
+            "desc": "lang.mDesc8",
+            "sDesc": "lang.mSDesc8",
+            "sPic": "UIManager.desCost",
+            "type": 2
+        },
+        {
+            "pic": "UIManager.m9",
+            "name": "Frank",
+            "desc": "lang.mDesc9",
+            "sDesc": "lang.mSDesc9",
+            "sPic": "UIManager.desCost",
+            "type": 2
+        }
+    ],
+    "popViewList": [
+        "OfflineProfitView",
+        "GuideView",
+        "ManagerView",
+        "WorkerView",
+        "AchieveView",
+        "RebornView",
+        "PrestigeView",
+        "RechargeView",
+        "AdBuffView",
+        "CircleView",
+        "FlyGiftView",
+        "InfoView",
+        "PrestigeVideoView",
+        "RankView",
+        "RebornBuffView",
+        "ShopView",
+        "WarnView",
+        "TrainManagerView"
+    ],
+    "storeList": [
+        {
+            "name": "Bookstore",
+            "pic": "UIStore.bookstore",
+            "type": 0
+        },
+        {
+            "name": "Restaurant",
+            "pic": "UIStore.restaurant",
+            "type": 1
+        },
+        {
+            "name": "Couture",
+            "pic": "UIStore.couture",
+            "type": 2
+        },
+        {
+            "name": "ShoeStore",
+            "pic": "UIStore.shoeStore",
+            "type": 3
+        },
+        {
+            "name": "ElectricStore",
+            "pic": "UIStore.electricStore",
+            "type": 4
+        },
+        {
+            "name": "Gallery",
+            "pic": "UIStore.gallery",
+            "type": 5
+        },
+        {
+            "name": "JewelryStore",
+            "pic": "UIStore.jewelryStore",
+            "type": 6
+        },
+        {
+            "name": "Office",
+            "pic": "UIStore.office",
+            "type": 7
+        },
+        {
+            "name": "CarStore",
+            "pic": "UIStore.carStore",
+            "type": 8
+        },
+        {
+            "name": "Bar",
+            "pic": "UIStore.bar",
+            "type": 9
+        }
+    ],
+    "playerInitData": [
+        "pCurrency",
+        "pScore",
+        "pProp",
+        "pAchievement",
+        "pBuilding",
+        "buildingUnlockTime",
+        "CircleCount",
+        "CircleTime",
+        "preSkill",
+        "gainPre",
+        "goodSkills",
+        "goodSkillsTime"
+    ],
+    "initData": {
+        "name": [
+            "myFloors",
+            "myFloorsTime",
+            "myManagers",
+            "myLicense",
+            "BornTimes",
+            "TotalIncome",
+            "AchieveLevel",
+            "BornIncome",
+            "AdBuffTime"
+        ],
+        "isOne": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    },
+    "floorLevelList": {
+        "level": [
+            25,
+            50,
+            100,
+            200,
+            300
+        ],
+        "profitTime": [
+            2,
+            3,
+            6,
+            12,
+            24,
+            96,
+            384,
+            1536,
+            6144,
+            36864
+        ],
+        "profit": [
+            1,
+            50,
+            450,
+            4050,
+            36450,
+            328050,
+            2952450,
+            32476950,
+            357246450,
+            3929710950
+        ],
+        "cost": [
+            0,
+            58.5,
+            877.5,
+            12285,
+            159705,
+            1916460,
+            21081060,
+            210810600,
+            1897295400,
+            15178320000,
+            100000000000000000000000000000
+        ],
+        "costPer": [
+            1.07,
+            1.15,
+            1.14,
+            1.13,
+            1.12,
+            1.11,
+            1.1,
+            1.09,
+            1.08,
+            1.07
+        ]
+    },
+    "homeList": {
+        "isTyping": true,
+        "typeList": [
+            "lang.homeType0",
+            "lang.homeType1",
+            "lang.homeType1"
+        ]
+    },
+    "goodSkillsEffect": [
+        [
+            [
+                {
+                    "time": -1,
+                    "per": 1.2
+                },
+                {
+                    "time": -1,
+                    "per": 2
+                }
+            ],
+            [
+                {
+                    "time": -1,
+                    "per": 1.5
+                },
+                {
+                    "time": -1,
+                    "per": 2
+                },
+                {
+                    "time": -1,
+                    "per": 2.5
+                },
+                {
+                    "time": -1,
+                    "per": 3
+                }
+            ]
+        ],
+        [
+            [
+                {
+                    "time": 0,
+                    "per": 1.1
+                },
+                {
+                    "time": 0,
+                    "per": 1.3
+                },
+                {
+                    "time": 0,
+                    "per": 1.5
+                }
+            ],
+            [
+                {
+                    "time": 2,
+                    "per": 20
+                },
+                {
+                    "time": 50,
+                    "per": 150
+                }
+            ],
+            [
+                {
+                    "time": 0,
+                    "per": 0
+                }
+            ],
+            [
+                {
+                    "time": 3600,
+                    "per": 2
+                },
+                {
+                    "time": 28800,
+                    "per": 2
+                },
+                {
+                    "time": 43200,
+                    "per": 2
+                }
+            ],
+            [
+                {
+                    "time": 604800,
+                    "per": 4
+                }
+            ],
+            [
+                {
+                    "time": 3600,
+                    "per": 10
+                },
+                {
+                    "time": 28800,
+                    "per": 10
+                },
+                {
+                    "time": 43200,
+                    "per": 10
+                }
+            ],
+            [
+                {
+                    "time": 7200,
+                    "per": 20
+                }
+            ],
+            [
+                {
+                    "time": 3600,
+                    "per": 50
+                }
+            ]
+        ]
+    ]
+}
