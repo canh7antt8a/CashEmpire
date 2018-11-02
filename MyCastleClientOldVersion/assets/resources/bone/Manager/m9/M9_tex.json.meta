@@ -1,7 +1,7 @@
 {
   "ver": "1.0.0",
   "uuid": "b2e23bf5-00d0-4400-9367-df6f603c9730",
-  "atlasJson": "{\"SubTexture\":[{\"width\":111,\"y\":1,\"height\":140,\"name\":\"图层_14\",\"x\":348},{\"width\":223,\"y\":1,\"height\":251,\"name\":\"组_1_拷贝\",\"x\":1},{\"width\":120,\"y\":1,\"height\":149,\"name\":\"图层_16\",\"x\":226},{\"width\":45,\"y\":1,\"height\":39,\"name\":\"图层_15\",\"x\":461}],\"width\":508,\"height\":254,\"name\":\"M9\",\"imagePath\":\"M9_tex.png\"}",
+  "atlasJson": "{\"width\":508,\"SubTexture\":[{\"width\":111,\"y\":1,\"height\":140,\"name\":\"图层_14\",\"x\":348},{\"width\":223,\"y\":1,\"height\":251,\"name\":\"组_1_拷贝\",\"x\":1},{\"width\":120,\"y\":1,\"height\":149,\"name\":\"图层_16\",\"x\":226},{\"width\":45,\"y\":1,\"height\":39,\"name\":\"图层_15\",\"x\":461}],\"height\":254,\"name\":\"M9\",\"imagePath\":\"M9_tex.png\"}",
   "texture": "b5ece574-e733-4955-8758-662790e2d0db",
   "subMetas": {}
 }

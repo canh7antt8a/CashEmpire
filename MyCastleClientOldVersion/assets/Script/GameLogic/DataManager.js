@@ -83,7 +83,7 @@ cc.Class({
     //实际执行储存的操作
     saveAction(name, cb) {
         this.statusList[name] = true;
-        this.getStoreArray(name, function (array) {
+        this.getStoreArray(name, false, function (array) {
             //遍历缓存获取数据组装新数据数组(处理获取facebook数据的空挡时，同类数据的缓存一起进行储存)
             for (var index in this.bufList[name]) {
                 if (this.bufList[name][index] != null) {
@@ -107,66 +107,37 @@ cc.Class({
             var saver = null;
             if (array.length > 0) {
                 saver = JSON.stringify(array);
-                /* if (isArray(array[0])) {
-                    array[0] = this.dataSplit(array[0]);
-                }
-                saver = "" + array[0];
-                for (var i = 1; i < array.length; i = i + 1) {
-                    if (isArray(array[i])) {
-                        array[i] = this.dataSplit(array[i]);
-                    }
-                    saver = saver + "^α" + array[i];
-                } */
             }
-            //储存并回调
+            //本地储存并回调
+            cc.sys.localStorage.setItem(name, saver);
+            this.statusList[name] = false;
+            if (cb != null) {
+                cb();
+            }
+            if (this.actionList[name] == true) {
+                this.actionList[name] = false;
+                this.saveAction(name);
+            }
+            //远程储存
             var param = {};
             param[name] = saver;
             SDK().setItem(param, function () {
-                this.statusList[name] = false;
-                if (cb != null) {
-                    cb();
-                }
-                if (this.actionList[name] == true) {
-                    this.actionList[name] = false;
-                    this.saveAction(name);
-                }
+                //console.log("remote success",param);
             }.bind(this))
         }.bind(this))
     },
 
     //获取整个数据
-    getStoreArray(name, cb) {
-        SDK().getItem(name, function (dataString) {
-            if (dataString == "null" && dataString == null) {
-                dataString = 0;
-            }
-            //数据字符串转换成数组，并回调
-            if (isString(dataString)) {
-                var dataArray = [];
-                if(dataString.indexOf("^α", 0) > 0 || dataString.indexOf("^β", 0) > 0 || dataString.indexOf("[", 0) < 0){
-                    dataArray = dataString.trim().split("^α");
-                    for (var i = 0; i < dataArray.length; i = i + 1) {
-                        if (isString(dataArray[i])) {
-                            if (dataArray[i].indexOf("^β", 0) > 0) {
-                                dataArray[i] = this.dataDeSplit(dataArray[i]);
-                            }
-                        }
-                        //处理单个数据并将数字转换成数字类型
-                        if (!isArray(dataArray[i])) {
-                            dataArray[i] = this.parseNumber(dataArray[i]);
-                        }
-                    }
-                }else{
-                    dataArray  = JSON.parse(dataString);
-                }
-                if (cb != null) {
-                    cb(dataArray, name);
-                }
-            } else {
-                console.log(name + " data error", dataString);
-                cb([], name);
-            }
-        }.bind(this), 1)
+    getStoreArray(name, isRemote, cb) {
+        //是否远程进行获取资源
+        if (isRemote) {
+            SDK().getItem(name, function (dataString) {
+                this.dealDate(dataString, name, cb, isRemote);
+            }.bind(this), 1)
+        } else {
+            var dataString = cc.sys.localStorage.getItem(name);
+            this.dealDate(dataString, name, cb, isRemote);
+        }
     },
 
     //设置一组数据
@@ -182,30 +153,58 @@ cc.Class({
         }
         var saver = null;
         saver = JSON.stringify(array);
-        /* if (array.length > 0) {
-            if (isArray(array[0])) {
-                array[0] = this.dataSplit(array[0]);
-            }
-            saver = "" + array[0];
-            for (var i = 1; i < array.length; i = i + 1) {
-                if (isArray(array[i])) {
-                    array[i] = this.dataSplit(array[i]);
-                }
-                saver = saver + "^α" + array[i];
-            }
-        } */
-        //储存并回调
+
+        //本地进行储存并回调
+        cc.sys.localStorage.setItem(name, saver);
+        if (cb != null) {
+            cb(true);
+        }
+        this.statusList[name] = false;
+        this.actionList[name] = false;
+
+        //远程储存
         var param = {};
         param[name] = saver;
         SDK().setItem(param, function () {
-            if (cb != null) {
-                cb(true);
-            }
-            this.statusList[name] = false;
-            this.actionList[name] = false;
+            //console.log("remote success",param);
         }.bind(this))
     },
 
+    //处理数据
+    dealDate(dataString, name, cb, isRemote) {
+        if (dataString == "null" || dataString == null || dataString == undefined) {
+            dataString = 0;
+        }
+        //数据字符串转换成数组，并回调
+        if (isString(dataString)) {
+            var dataArray = [];
+            if (dataString.indexOf("^α", 0) > 0 || dataString.indexOf("^β", 0) > 0 || dataString.indexOf("[", 0) < 0) {
+                dataArray = dataString.trim().split("^α");
+                for (var i = 0; i < dataArray.length; i = i + 1) {
+                    if (isString(dataArray[i])) {
+                        if (dataArray[i].indexOf("^β", 0) > 0) {
+                            dataArray[i] = this.dataDeSplit(dataArray[i]);
+                        }
+                    }
+                    //处理单个数据并将数字转换成数字类型
+                    if (!isArray(dataArray[i])) {
+                        dataArray[i] = this.parseNumber(dataArray[i]);
+                    }
+                }
+            } else {
+                dataArray = JSON.parse(dataString);
+            }
+            if (cb != null) {
+                cb(dataArray, name);
+            }
+            if(isRemote){
+                this.setStoreArray(name,dataArray);
+            }
+        } else {
+            console.log(name + " data error", dataString);
+            cb([], name);
+        }
+    },
 
     //一条字符串数据转换成数组
     dataDeSplit(dataString) {
@@ -233,6 +232,7 @@ cc.Class({
         }
         return saver;
     },
+
     //将一个数据转换成数字（如果可以）
     parseNumber(num) {
         if (/^(-?\d+)(\.\d+)?$/.test(num) && !isArray(num)) {
@@ -251,23 +251,37 @@ cc.Class({
     setData(name, val, cb) {
         var param = {};
         param[name] = val;
+        cc.sys.localStorage.setItem(name, val);
+        if (cb != null) {
+            cb(true);
+        }
         SDK().setItem(param, function () {
-            if (cb != null) {
-                cb(true);
-            }
+            //console.log("remote success",param);
         }.bind(this))
     },
 
-    getData(name, cb) {
-        SDK().getItem(name, function (dataString) {
-            if (dataString == "null" && dataString == null) {
+    getData(name, cb, isRemote) {
+        if (isRemote) {
+            SDK().getItem(name, function (dataString) {
+                if (dataString == "null" || dataString == null || dataString == undefined) {
+                    dataString = 0;
+                }
+                dataString = this.parseNumber(dataString);
+                if (cb != null) {
+                    cb(dataString)
+                }
+                this.setData(name, dataString);
+            }.bind(this), 1);
+        } else {
+            var dataString = cc.sys.localStorage.getItem(name);
+            if (dataString == "null" || dataString == null || dataString == undefined) {
                 dataString = 0;
             }
             dataString = this.parseNumber(dataString);
             if (cb != null) {
                 cb(dataString)
             }
-        }.bind(this), 1)
+        }
     },
     // update (dt) {},
 });

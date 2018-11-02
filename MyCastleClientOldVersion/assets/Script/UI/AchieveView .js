@@ -343,7 +343,6 @@ cc.Class({
             infoList = this.milepostInfoList;
             infoList.length = 10;
         }
-        this.achieveView.active = false;
         this.milepostView.active = false;
         for (var i = 0; i < infoList.length; i = i + 1) {
             if (idx == 1) {

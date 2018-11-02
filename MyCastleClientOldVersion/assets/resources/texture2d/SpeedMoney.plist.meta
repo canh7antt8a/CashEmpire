@@ -1,0 +1,34 @@
+{
+  "ver": "1.2.4",
+  "uuid": "aafa975f-74de-495e-b9e5-ff7a54332698",
+  "rawTextureUuid": "ceb8d5f0-528a-4f15-87d6-8a6795fcc046",
+  "size": {
+    "width": 69,
+    "height": 74
+  },
+  "type": "Texture Packer",
+  "subMetas": {
+    "speedParticle.png": {
+      "ver": "1.0.3",
+      "uuid": "6bef52dc-e2c9-498c-9b89-3dd358d4da5f",
+      "rawTextureUuid": "ceb8d5f0-528a-4f15-87d6-8a6795fcc046",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 67,
+      "height": 72,
+      "rawWidth": 67,
+      "rawHeight": 72,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "spriteType": "normal",
+      "subMetas": {}
+    }
+  }
+}

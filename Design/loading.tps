@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>4.8.3</string>
+        <string>4.9.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -187,16 +187,29 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">loading/houseSprite.png</key>
+            <key type="filename">loading/diamond.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>160,152,320,303</rect>
+                <rect>26,30,52,59</rect>
                 <key>scale9Paddings</key>
-                <rect>160,152,320,303</rect>
+                <rect>26,30,52,59</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">loading/loadMan.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>95,163,190,325</rect>
+                <key>scale9Paddings</key>
+                <rect>95,163,190,325</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -213,16 +226,16 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">loading/loadingCloud.png</key>
+            <key type="filename">loading/loadingBg1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>171,60,341,119</rect>
+                <rect>160,284,320,568</rect>
                 <key>scale9Paddings</key>
-                <rect>171,60,341,119</rect>
+                <rect>160,284,320,568</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -239,22 +252,16 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">loading/loadingSprite0.png</key>
-            <key type="filename">loading/loadingSprite1.png</key>
-            <key type="filename">loading/loadingSprite2.png</key>
-            <key type="filename">loading/loadingSprite3.png</key>
-            <key type="filename">loading/loadingSprite4.png</key>
-            <key type="filename">loading/loadingSprite5.png</key>
-            <key type="filename">loading/loadingSprite6.png</key>
+            <key type="filename">loading/loadingProBarBg.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>164,176,327,353</rect>
+                <rect>5,12,10,23</rect>
                 <key>scale9Paddings</key>
-                <rect>164,176,327,353</rect>
+                <rect>5,12,10,23</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

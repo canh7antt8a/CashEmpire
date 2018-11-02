@@ -84,6 +84,10 @@ cc.Class({
             default: false,
             visible: false,
         },
+        isLostData: {
+            default: false,
+            visible: false,
+        },
     },
 
     //第一次进游戏则不需要再更新
@@ -269,11 +273,17 @@ cc.Class({
                 if (val == 0 || val == null) {
                     this.isFirstCome = true;
                     this.firstPlayerData(function () {
-                        this.initPlayerInfo();
                         this.firstIncheckUpdata();
+                        this.initPlayerInfo();
                         SDK().setItem({ isFirst: 1 });
                     }.bind(this));
                 } else {
+                    var date = cc.sys.localStorage.getItem("localData");
+                    if (date != "ok") {
+                        this.isLostData = true;
+                    } else {
+                        this.isLostData = false;
+                    }
                     //更新版本
                     this.updataVersion(function () {
                         //加载用户数据
@@ -287,7 +297,6 @@ cc.Class({
     //初始化用户数据
     firstPlayerData(cb) {
         //新手引导数据
-        SDK().setItem({ guideStep: -1 });
         cc.sys.localStorage.setItem('guideStep', -1);
 
         this.fristInitPros = 0;
@@ -331,8 +340,14 @@ cc.Class({
                     worldScript.selectWorld(0);
                 }
             }.bind(this)
+            var isRemote = false;
+            if (this.isLostData) {
+                isRemote = true;
+            } else {
+                isRemote = false;
+            }
             for (var i = 0; i < this.playerInitData.length; i = i + 1) {
-                dataManager.getStoreArray(this.playerInitData[i], function (list, name) {
+                dataManager.getStoreArray(this.playerInitData[i], isRemote, function (list, name) {
                     //console.log(name, list)
                     this.itemArrayList[name] = list;
                     checkInitPros();
@@ -430,13 +445,21 @@ cc.Class({
                             cb();
                         }
                     }
+                    cc.sys.localStorage.setItem("localData", "1");
+                    this.isLostData = false;
                 }
             }.bind(this)
+            var isRemote = false;
+            if (this.isLostData) {
+                isRemote = true;
+            } else {
+                isRemote = false;
+            }
             for (var i = 0; i < this.initData.name.length; i = i + 1) {
                 //数组数据
                 if (this.initData.isOne[i] == 0) {
                     var name = this.worldId + "-" + this.initData.name[i];
-                    dataManager.getStoreArray(name, function (list, name) {
+                    dataManager.getStoreArray(name, isRemote, function (list, name) {
                         //console.log(name, list)
                         this.itemArrayList[name] = list;
                         checkInitPros();
@@ -446,7 +469,7 @@ cc.Class({
                 else {
                     this.getData(this.initData.name[i], function () {
                         checkInitPros();
-                    }.bind(this))
+                    }.bind(this), isRemote)
                 }
             }
         }.bind(this));
@@ -490,7 +513,7 @@ cc.Class({
             this.itemArrayList[name][i] = this.itemArrayList[name][i] + val;
 
             //处理有关金币的时间
-            if (name == "pCurrency") {
+            if (name == "pCurrency" && i == 0) {
                 this.dealMoney(val, i);
                 if (this.itemArrayList[name][i] >= 4 && !worldScript.node.active) {
                     //引导升级店铺
@@ -576,7 +599,7 @@ cc.Class({
             realName = this.worldId + "-" + name;
             //重生处理
             if (name == "BornIncome") {
-                realName = this.getData("BornTimes") + "^" + realName;
+                realName = this.getData("BornTimes", null, false) + "^" + realName;
             }
         }
         if (val != undefined && val != null) {
@@ -590,14 +613,14 @@ cc.Class({
     },
 
     //获取单个数据
-    getData(name, cb) {
+    getData(name, cb, isRemote) {
         var realName = name;
         //处理不同世界的数据
         if (this.initData.name.indexOf(name) >= 0) {
             realName = this.worldId + "-" + name;
             //重生处理
             if (name == "BornIncome") {
-                realName = this.getData("BornTimes") + "^" + realName;
+                realName = this.getData("BornTimes", null, false) + "^" + realName;
             }
         }
         if (this.dataList[realName] == undefined) {
@@ -606,7 +629,7 @@ cc.Class({
                 if (cb != null) {
                     cb();
                 }
-            }.bind(this));
+            }.bind(this), isRemote);
         } else {
             if (cb != null) {
                 cb();
@@ -625,20 +648,14 @@ cc.Class({
             if (val > 0) {
                 this.itemArrayAdd("pScore", 3, val);
                 //处理单栋楼的总收入
-                var buildingTI = this.getData("TotalIncome");
+                var buildingTI = this.getData("TotalIncome", null, false);
                 buildingTI = buildingTI + val;
                 this.setData("TotalIncome", buildingTI);
 
                 //处理单栋楼的每次重生的总收入
-                var bornTI = this.getData("BornIncome");
+                var bornTI = this.getData("BornIncome", null, false);
                 bornTI = bornTI + val;
                 this.setData("BornIncome", bornTI);
-
-                //第一次达到重生的条件
-                if (this.itemArrayList["pCurrency"][0] >= 180000000) {
-                    //引导重生
-                    guideScript.checkGuide(7);
-                }
             }
             //处理最高金额
             if (this.itemArrayList["pCurrency"][i] > this.itemArrayList["pScore"][4]) {

@@ -1,7 +1,0 @@
-{
-  "ver": "1.0.0",
-  "uuid": "ff11f080-2a97-4aa9-9eba-742aa4a7ac9c",
-  "atlasJson": "{\"width\":512,\"height\":256,\"name\":\"propeffect\",\"imagePath\":\"propeffect_tex.png\",\"SubTexture\":[{\"width\":362,\"y\":83,\"height\":80,\"name\":\"圆角矩形_6_拷贝_8\",\"x\":1},{\"width\":362,\"y\":1,\"height\":80,\"name\":\"圆角矩形_6_拷贝_9\",\"x\":1},{\"width\":1,\"y\":1,\"height\":1,\"name\":\"X99_9\",\"x\":365}]}",
-  "texture": "002d274e-e2b7-4165-8899-3db2484e1ff7",
-  "subMetas": {}
-}

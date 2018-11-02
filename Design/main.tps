@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>4.8.3</string>
+        <string>4.9.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -88,9 +88,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2048</int>
+            <int>1024</int>
             <key>height</key>
-            <int>2048</int>
+            <int>1024</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -475,19 +475,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">main/mainBg.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>160,284,320,568</rect>
-                <key>scale9Paddings</key>
-                <rect>160,284,320,568</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">main/maxPro.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -680,19 +667,6 @@
                 <rect>19,22,37,43</rect>
                 <key>scale9Paddings</key>
                 <rect>19,22,37,43</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">main/zeroFloor.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>146,77,293,154</rect>
-                <key>scale9Paddings</key>
-                <rect>146,77,293,154</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

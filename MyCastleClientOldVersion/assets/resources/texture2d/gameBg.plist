@@ -11,11 +11,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{1575,1075}</string>
+                <string>{640,1136}</string>
                 <key>spriteSourceSize</key>
-                <string>{1575,1075}</string>
+                <string>{640,1136}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{1575,1075}}</string>
+                <string>{{1,1},{640,1136}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -26,13 +26,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{1575,1075}</string>
+                <string>{640,1136}</string>
                 <key>spriteSourceSize</key>
-                <string>{1575,1075}</string>
+                <string>{640,1136}</string>
                 <key>textureRect</key>
-                <string>{{1,1078},{1575,1075}}</string>
+                <string>{{1,1139},{640,1136}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>Bg2.png</key>
             <dict>
@@ -41,11 +41,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{1575,1075}</string>
+                <string>{640,1136}</string>
                 <key>spriteSourceSize</key>
-                <string>{1575,1075}</string>
+                <string>{640,1136}</string>
                 <key>textureRect</key>
-                <string>{{1,2155},{1575,1075}}</string>
+                <string>{{643,1},{640,1136}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -61,9 +61,9 @@
             <key>realTextureFileName</key>
             <string>gameBg.png</string>
             <key>size</key>
-            <string>{1577,3231}</string>
+            <string>{1284,1780}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:def0ad5dbe0aa3eb5fed35c45c381d74:b7a995c9728c105344b08c2cd3bf0ff8:2a347f6f945cfc11cf9d8c6d9d8fec4b$</string>
+            <string>$TexturePacker:SmartUpdate:76312244aac05f7b64f2d23e4dfb9a89:bc71169bdc25af2bf56c8aa4eb491435:2a347f6f945cfc11cf9d8c6d9d8fec4b$</string>
             <key>textureFileName</key>
             <string>gameBg.png</string>
         </dict>

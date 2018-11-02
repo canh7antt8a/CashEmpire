@@ -20,8 +20,8 @@
         },
         {
             "talk": "Click to upgrade you manager",
-            "target": "Canvas/WorkerView/Bg/SelectView/view/content/Worker0/Train",
-            "view": "WorkerView",
+            "target": "Canvas/MainView/Building/ScrollView/view/content/Floor0/Manager/Sprite",
+            "view": null,
             "idx": 3
         },
         {
@@ -43,10 +43,16 @@
             "idx": 6
         },
         {
-            "talk": "To hard to upgrade?\nJust rebuild your building!\nYou will be much more easier to earn the money! ",
-            "target": "Canvas/MainView/UIView/Bottom/Btns/Reborn",
+            "talk": "Show you something interesting.",
+            "target": "Canvas/MainView/UIView/Bottom/Btns/WorldBtn",
             "view": null,
             "idx": 7
+        },
+        {
+            "talk": "No money? How about its.",
+            "target": "Canvas/ShopView/Bg/GoodView/ScrollView/view/content/Content1/Good3/Buy",
+            "view": "ShopView",
+            "idx": 8
         }
     ]
 }

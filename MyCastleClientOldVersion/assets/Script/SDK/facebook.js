@@ -1,7 +1,6 @@
 var Utils = require("./utils/SDKUtils");
-var GAME_CHECK_URL = "https://haiwai.31home.com:8003/games.detail";
-var GAME_RECOMMEND_URL = "https://haiwai.31home.com:8003/games.recommend";
 var GAME_STAT_URL = "https://haiwai.31home.com:8003/games.stat";
+var lastScore = 0;
 
 var ELoadState = {
     AD_LOADING: "AD_LOADING",
@@ -68,14 +67,11 @@ FB_SDK.prototype.init = function (cb) {
         return;
     }
     this.playTimes = 0;
-
     //预加载视频广告和插屏广告
-    if (cc.sys.os != cc.sys.OS_WINDOWS) {
-        //预加载视频广告和插屏广告
-        this.loadVideoAd(0);
-        this.loadVideoAd(1);
-        this.loadInterstitialAd();
-    }
+    this.loadVideoAd(0);
+    this.loadVideoAd(1);
+    this.loadInterstitialAd();
+
 
     MyPlayer.name = FBInstant.player.getName();
     cc.loader.load(FBInstant.player.getPhoto(), function (err, texture) {
@@ -289,7 +285,6 @@ FB_SDK.prototype.purchaseAsync = function (productID, developerPayload, cb) {
         developerPayload: productID,
     }).then(function (purchase) {
         cb(purchase);
-        // {productID: '12345', purchaseToken: '54321', developerPayload: 'foobar', ...}
     }).catch(function (e) {
         console.log(e);
         cb(false, null);
@@ -312,7 +307,6 @@ FB_SDK.prototype.getPurchasesAsync = function (cb) {
 
     FBInstant.payments.getPurchasesAsync().then(function (purchases) {
         cb(purchases);
-        // [{productID: '12345', ...}, ...]
     }).catch(function (e) {
         cb([]);
     });
@@ -365,14 +359,12 @@ FB_SDK.prototype.share = function (score, cb) {
     FBInstant.context
         .chooseAsync()
         .then(function () {
-            // console.log("FBInstant.context.getID():",FBInstant.context.getID());
             self.doShare(score);
             if (cb != null) {
                 cb(true);
             }
         }
         ).catch(function (e) {
-            // console.log("catch",e);
             if (e.code != null && e.code == "SAME_CONTEXT") {
                 //相同的用户或group，不能再次发消息
                 if (cb != null) {
@@ -390,10 +382,8 @@ FB_SDK.prototype.doShare = function (score) {
     var self = this;
     var en_text = self.getName() + "Let's play together?";
     var cn_text = self.getName() + "一起来玩吧！";
-    // console.log("share:"+en_text);
     var random = Math.floor(Math.random() * 2.99);
     var framePath = "texture2d/share" + random;
-    // console.log("framePath:",framePath)
     cc.loader.loadRes(framePath, cc.Texture2D, function (err, texture) {
         let canvas = document.createElement('canvas');
         let ctx = canvas.getContext('2d');
@@ -429,8 +419,6 @@ FB_SDK.prototype.shareBestScore3Times = function (key) {
     SDK().getItem("share_times", function (t) {
         //如果没有设置过倒计时，那么设置为3分钟
         var now = Math.floor(Date.now() / 1000);
-        // console.log("t:",t)
-        // console.log("t-now:",t-now)
         if (t == null || t <= 0 || t - now < 0) {
             var param = {};
             param['share_times'] = now + 180;
@@ -520,16 +508,12 @@ FB_SDK.prototype.loadInterstitialAd = function () {
     FBInstant.getInterstitialAdAsync(
         interstitial_ad_ids,
     ).then(function (interstitial) {
-        // console.log("FBInstant.getInterstitialAdAsync:",interstitial);
         this.InterstitialAd = interstitial;
         this.InterstitialAdState = ELoadState.AD_LOADING;
         return this.InterstitialAd.loadAsync();
     }.bind(this)).catch(function (e) {
-        // console.log("load.showInterstitialAd catch");
-        // console.log(JSON.stringify(e));
     }.bind(this))
         .then(function () {
-            // console.log("FBInstant.getInterstitialAdAsync done:");
             this.InterstitialAdState = ELoadState.AD_LOAD_SUCCESS;
         }.bind(this));
 };
@@ -550,31 +534,20 @@ FB_SDK.prototype.showInterstitialAd = function (cb, noOp) {
             }
             return;
         };
-        // console.log("show Interstitial ad start");
         this.InterstitialAd.showAsync().then(function () {
-            // console.log("this.showInterstitialAd.showAsync");
             this.InterstitialAdState = ELoadState.AD_COMPLETE;
-            // this.game.paused = false;
-            // window.sounds.toggleMusic(false);
             if (cb) {
                 cb(true);
             }
-
-            // console.log("show showInterstitialAd success");
             this.loadInterstitialAd();
         }.bind(this))
             .catch(function (e) {
-                // console.log("this.showInterstitialAd catch");
                 this.InterstitialAdState = ELoadState.AD_COMPLETE;
-                // this.game.paused = false;
-                // window.sounds.toggleMusic(false);
-                // console.log(JSON.stringify(e));
                 if (cb) {
                     cb(false);
                 }
             }.bind(this));
     } else {
-        // console.log("show showInterstitialAd ad Stop");
         if (cb) {
             cb(false);
         }
@@ -592,7 +565,6 @@ FB_SDK.prototype.loadVideoAd = function (type) {
         return;
     }
 
-    // console.log("FB_SDK.prototype.loadVideoAd");
     FBInstant.getRewardedVideoAsync(
         video_ad_ids[type],
     ).then(function (rewardedVideo) {
@@ -603,7 +575,10 @@ FB_SDK.prototype.loadVideoAd = function (type) {
         this.videoAdState[type] = ELoadState.AD_LOAD_SUCCESS;
     }.bind(this)).catch(function (err) {
         this.videoAdState[type] = ELoadState.AD_LOADING;
-        this.loadVideoAd(type);
+        //网页状态下不持续加载
+        if (cc.sys.os == cc.sys.OS_ANDROID || cc.sys.os == cc.sys.OS_IOS) {
+            this.loadVideoAd(type);
+        }
     }.bind(this));;
 };
 
@@ -629,8 +604,6 @@ FB_SDK.prototype.showVideoAd = function (cb, type) {
         return;
     };
 
-    // console.log("FB_SDK.prototype.showVideoAd",this.videoAd);
-
     if (this.videoAd[type] != null) {
         console.log("show video ad start");
         this.videoAd[type].showAsync()
@@ -643,7 +616,6 @@ FB_SDK.prototype.showVideoAd = function (cb, type) {
             }.bind(this))
             .catch(function (e) {
                 this.videoAdState[type] = ELoadState.AD_COMPLETE;
-                // console.log(JSON.stringify(e));
                 if (cb) {
                     cb(false);
                 }
@@ -993,11 +965,17 @@ FB_SDK.prototype.postRankToMessage = function (type, cb) {
 }
 
 FB_SDK.prototype.getTime = function (cb) {
-    FBInstant.getLeaderboardAsync('time')
+    if (typeof FBInstant === 'undefined') {
+        if (cb != null) {
+            cb(new Date().getTime() / 1000)
+        }
+        return;
+    }
+    FBInstant.getLeaderboardAsync('Time')
         .then(function (leaderboard) {
-            return leaderboard.setScoreAsync(9001)
+            return leaderboard.setScoreAsync(parseInt(lastScore + 1))
                 .then(function (entry) {
-                    console.log(entry.getTimestamp()); // 1515806355
+                    lastScore = entry.getScore();
                     if (cb != null) {
                         cb(entry.getTimestamp())
                     }
@@ -1005,6 +983,12 @@ FB_SDK.prototype.getTime = function (cb) {
         })
 }
 
+FB_SDK.prototype.quit = function () {
+    if (typeof FBInstant === 'undefined') {
+        return;
+    }
+    FBInstant.quit();
+}
 
 /**
  * =========================================================

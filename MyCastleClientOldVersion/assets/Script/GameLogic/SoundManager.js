@@ -38,7 +38,7 @@ cc.Class({
         resManager.loadClip("Bg", function (clip) {
             if (clip != null) {
                 this.audio = clip;
-                this.bg = cc.audioEngine.play(this.audio, true, 1);
+                this.bg = cc.audioEngine.play(this.audio, true, 0.5);
             } else {
                 console.log(soundtype + " soundClip not exist!");
             }

@@ -76,7 +76,7 @@ cc.Class({
     //处理成就
     checkProsVal() {
         var lv = player.itemArrayGet("pAchievement", 6);
-        if (lv >= 40) {
+        if (lv >= 39) {
             this.node.active = false;
         } else {
             this.node.active = true;

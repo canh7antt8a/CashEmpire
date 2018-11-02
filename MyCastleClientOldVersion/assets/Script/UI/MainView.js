@@ -104,6 +104,10 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
+        adSpeedMoney: {
+            default: null,
+            type: cc.Node,
+        },
         adBuff: {
             default: null,
             type: cc.Node,
@@ -147,6 +151,10 @@ cc.Class({
         maxFloor: {
             default: 0,
             type: cc.Integer,
+            visible: false,
+        },
+        isLoadMusic: {
+            default: false,
             visible: false,
         },
     },
@@ -264,7 +272,7 @@ cc.Class({
         }
 
         //处理视频广告增益效果
-        var adBuffTime = player.getData("AdBuffTime");
+        var adBuffTime = player.getData("AdBuffTime", null, false);
         var now = gameApplication.getCurTime();
         var leftTime = gameApplication.countTime(adBuffTime - now)[0];
         //是否还有增益时间
@@ -276,7 +284,13 @@ cc.Class({
                 this.buffingTime.string = leftTime;
             }
             cc.find("Light", this.videoBtn).active = false;
+            if (this.adSpeedMoney.active == false) {
+                this.adSpeedMoney.active = true;
+            }
         } else {
+            if (this.adSpeedMoney.active) {
+                this.adSpeedMoney.active = false;
+            }
             cc.find("Light", this.videoBtn).active = true;
             this.adBuffNoBuffUI.main.active = true;
             this.adBuffBuffingUI.main.active = false;
@@ -372,15 +386,20 @@ cc.Class({
         //初始化员工界面
         workerScript.initView();
 
-        if (!this.buildingInited) {
-            //加载背景音乐
-            soundManager.loadBg();
+        //加载背景音乐
+        if (!this.isLoadMusic) {
+            this.scheduleOnce(function () {
+                soundManager.loadBg();
+                this.isLoadMusic = true;
+            }.bind(this), 30)
         }
+
         this.buildingInited = true;
 
         this.scheduleOnce(function () {
             this.scrollView.scrollToOffset(cc.v2(0, 480 + (9 - this.maxFloor) * 371), 2);
         }.bind(this), 1)
+
 
 
     },
@@ -599,6 +618,7 @@ cc.Class({
         node.on("click", function (event) {
             gameApplication.soundManager.playSound("btnClick");
             node.active = false;
+            buildManager.lastTime[idx] = -1;
             buildManager.openShop(idx);
         }.bind(this), this)
     },
@@ -754,7 +774,19 @@ cc.Class({
             }.bind(this));
         }
         else if (type == "adBuff") {
-            viewManager.popView("AdBuffView", true, function (view) {
+            //处理视频广告增益效果
+            var adBuffTime = player.getData("AdBuffTime", null, false);
+            var now = gameApplication.getCurTime();
+            //是否还有增益时间
+            if (adBuffTime < now) {
+                gameApplication.onVideoBtnClick(function (isOK) {
+                    if (isOK) {
+                        var buffTime = 60;
+                        player.setData("AdBuffTime", now + buffTime);
+                    }
+                }.bind(this), 0);
+            }
+            /* viewManager.popView("AdBuffView", true, function (view) {
                 //初始化
                 if (this.adViewInit == undefined || this.adViewInit == null) {
                     var buffTime = 300;
@@ -768,7 +800,7 @@ cc.Class({
                         if (player.itemArrayGet("pCurrency", 1) >= 200) {
                             player.itemArrayAdd("pCurrency", 1, -200, function () {
                                 //处理视频广告增益效果
-                                var adBuffTime = player.getData("AdBuffTime");
+                                var adBuffTime = player.getData("AdBuffTime", null, false);
                                 var now = gameApplication.getCurTime();
                                 //是否还有增益时间
                                 if (adBuffTime >= now) {
@@ -792,7 +824,7 @@ cc.Class({
                         gameApplication.onVideoBtnClick(function (isOK) {
                             if (isOK) {
                                 //处理视频广告增益效果
-                                var adBuffTime = player.getData("AdBuffTime");
+                                var adBuffTime = player.getData("AdBuffTime", null, false);
                                 var now = gameApplication.getCurTime();
                                 //是否还有增益时间
                                 if (adBuffTime >= now) {
@@ -810,7 +842,7 @@ cc.Class({
                 }
 
                 //处理视频广告增益效果
-                var adBuffTime = player.getData("AdBuffTime");
+                var adBuffTime = player.getData("AdBuffTime", null, false);
                 var now = gameApplication.getCurTime();
                 //是否还有增益时间
                 if (adBuffTime >= now) {
@@ -820,7 +852,7 @@ cc.Class({
                     this.buffingView.active = false;
                     this.NoBuffView.active = true;
                 }
-            }.bind(this));
+            }.bind(this)); */
         } else if (type == "circle") {
             viewManager.popView("CircleView", true, function (view) {
                 //初始化

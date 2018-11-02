@@ -88,9 +88,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2048</int>
+            <int>1024</int>
             <key>height</key>
-            <int>2048</int>
+            <int>1024</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -239,23 +239,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">shop/itemBg0.png</key>
-            <key type="filename">shop/itemBg1.png</key>
-            <key type="filename">shop/itemBg2.png</key>
-            <key type="filename">shop/itemBg3.png</key>
-            <key type="filename">shop/itemBg4.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>38,50,76,99</rect>
-                <key>scale9Paddings</key>
-                <rect>38,50,76,99</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">shop/shopBg.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -295,20 +278,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">shop/shopItemBg0.png</key>
-            <key type="filename">shop/shopItemBg1.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>56,89,113,177</rect>
-                <key>scale9Paddings</key>
-                <rect>56,89,113,177</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">shop/shopItemBg2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -332,23 +301,6 @@
                 <rect>26,23,51,45</rect>
                 <key>scale9Paddings</key>
                 <rect>26,23,51,45</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">shop/titelBg0.png</key>
-            <key type="filename">shop/titelBg1.png</key>
-            <key type="filename">shop/titelBg2.png</key>
-            <key type="filename">shop/titelBg3.png</key>
-            <key type="filename">shop/titelBg4.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>18,20,35,39</rect>
-                <key>scale9Paddings</key>
-                <rect>18,20,35,39</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

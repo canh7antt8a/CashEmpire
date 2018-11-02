@@ -187,68 +187,16 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">building1/bName0.png</key>
+            <key type="filename">building1/BackBuilding.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>134,16,268,33</rect>
+                <rect>25,25,50,50</rect>
                 <key>scale9Paddings</key>
-                <rect>134,16,268,33</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">building1/bName1.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>69,16,139,32</rect>
-                <key>scale9Paddings</key>
-                <rect>69,16,139,32</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">building1/bName2.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>53,15,105,31</rect>
-                <key>scale9Paddings</key>
-                <rect>53,15,105,31</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">building1/bName3.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>63,16,127,32</rect>
-                <key>scale9Paddings</key>
-                <rect>63,16,127,32</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">building1/bName4.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>58,16,115,32</rect>
-                <key>scale9Paddings</key>
-                <rect>58,16,115,32</rect>
+                <rect>25,25,50,50</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -268,6 +216,9 @@
             <key type="filename">building1/buildContent1.png</key>
             <key type="filename">building1/buildContent2.png</key>
             <key type="filename">building1/buildContent3.png</key>
+            <key type="filename">building1/buildContent5.png</key>
+            <key type="filename">building1/buildContent6.png</key>
+            <key type="filename">building1/buildContent7.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

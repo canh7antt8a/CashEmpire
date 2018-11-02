@@ -25,14 +25,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 214
+        "__id__": 218
       },
       {
-        "__id__": 215
+        "__id__": 219
       }
     ],
     "_prefab": {
-      "__id__": 216
+      "__id__": 220
     },
     "_id": "",
     "_opacity": 255,
@@ -226,14 +226,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 211
+        "__id__": 215
       },
       {
-        "__id__": 212
+        "__id__": 216
       }
     ],
     "_prefab": {
-      "__id__": 213
+      "__id__": 217
     },
     "_id": "",
     "_opacity": 255,
@@ -775,23 +775,26 @@
       },
       {
         "__id__": 29
+      },
+      {
+        "__id__": 207
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 207
+        "__id__": 211
       },
       {
-        "__id__": 208
+        "__id__": 212
       },
       {
-        "__id__": 209
+        "__id__": 213
       }
     ],
     "_prefab": {
-      "__id__": 210
+      "__id__": 214
     },
     "_id": "",
     "_opacity": 255,
@@ -2679,7 +2682,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "cbb9dc22-cf97-4264-890b-36eb076308cb"
+      "__uuid__": "0a6dea3b-d356-4779-94c7-12d7dc1dcd5a"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -2785,7 +2788,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -185,
+      "x": 0,
       "y": -140
     },
     "_skewX": 0,
@@ -4087,7 +4090,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "cbb9dc22-cf97-4264-890b-36eb076308cb"
+      "__uuid__": "0a6dea3b-d356-4779-94c7-12d7dc1dcd5a"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -5495,7 +5498,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "cbb9dc22-cf97-4264-890b-36eb076308cb"
+      "__uuid__": "0a6dea3b-d356-4779-94c7-12d7dc1dcd5a"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -6184,6 +6187,109 @@
     "sync": false
   },
   {
+    "__type__": "cc.Node",
+    "_name": "BuyMask",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 24
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 208
+      },
+      {
+        "__id__": 209
+      }
+    ],
+    "_prefab": {
+      "__id__": 210
+    },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 640,
+      "height": 1136
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 5,
+      "y": 65
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 207
+    },
+    "_enabled": true,
+    "isAlignOnce": true,
+    "_target": null,
+    "_alignFlags": 45,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 0,
+    "_originalHeight": 0
+  },
+  {
+    "__type__": "cc.BlockInputEvents",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 207
+    },
+    "_enabled": true
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "bd3fd485-b0c8-41c1-a08d-62248f291bf5"
+    },
+    "fileId": "5f9wxBMfZJvqmtToVZIo2i",
+    "sync": false
+  },
+  {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
@@ -6357,7 +6463,10 @@
     "goodInfoList": null,
     "shareGiftUI": {},
     "videoGiftUI": {},
-    "isInit": false
+    "isInit": false,
+    "buyMask": {
+      "__id__": 207
+    }
   },
   {
     "__type__": "cc.Widget",

@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "SpeedUp",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 2,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "props": {
+      "y": [
+        {
+          "frame": 0,
+          "value": -916
+        },
+        {
+          "frame": 1.5,
+          "value": 865
+        },
+        {
+          "frame": 2,
+          "value": 865
+        }
+      ]
+    }
+  },
+  "events": []
+}

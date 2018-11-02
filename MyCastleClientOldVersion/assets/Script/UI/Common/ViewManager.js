@@ -345,8 +345,7 @@ cc.Class({
             var old = this.curPopList.pop();
             if (old != null && old != undefined) {
                 let oldView = this.popSaver[old];
-                //跳过引导界面
-                if (old != "GuideView") {
+                if (!isFirst) {
                     oldView.active = false;
                 }
                 this.curPopList.push(old);
@@ -360,13 +359,6 @@ cc.Class({
                 view.x = -10000;
                 if (cb != null) {
                     cb(view);
-                }
-                if(view.name == "GuideView"){
-                    view.getComponent(cc.Widget).scheduleOnce(function () {
-                        if (view.x == -10000) {
-                            view.active = false;
-                        }
-                    }.bind(this), 0.5);
                 }
             } else {
                 soundManager.playSound("closePop");
@@ -397,12 +389,9 @@ cc.Class({
             var pre = this.curPopList.pop();
             if (pre != null && pre != undefined) {
                 let preView = this.popSaver[pre];
-                //跳过引导界面
-                if (pre != "GuideView") {
-                    preView.active = true;
-                    var proBg = cc.find("Bg", preView);
-                    proBg.scale = 1;
-                }
+                preView.active = true;
+                var proBg = cc.find("Bg", preView);
+                proBg.scale = 1;
                 this.curPopList.push(pre);
             }
         }

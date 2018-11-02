@@ -56,17 +56,14 @@ cc.Class({
             default: null,
             visible: false,
         },
-        curId: {
-            default: -1,
-            visible: false,
-        },
-        isGuiding: {
-            default: false,
-            visible: false,
-        },
         targetNode: {
             default: null,
             type: cc.Node,
+        },
+        hands: {
+            default: [],
+            type: [cc.Node],
+            visible: false,
         },
     },
 
@@ -74,13 +71,6 @@ cc.Class({
 
     onLoad() {
         window.guideScript = this;
-        SDK().getItem("guideStep", function (val) {
-            if (val == undefined || val == null || val == "undefined") {
-                val = -1;
-            }
-            this.curId = val;
-            cc.sys.localStorage.setItem('guideStep', val);
-        }.bind(this))
     },
 
     onEnable() {
@@ -102,9 +92,7 @@ cc.Class({
     start() { },
 
     setStep(idx) {
-        cc.sys.localStorage.setItem('guideStep', idx);
-        SDK().setItem({ guideStep: idx });
-        this.isGuiding = false;
+        cc.sys.localStorage.setItem('guideStep' + idx, 1);
     },
 
     checkGuide(idx) {
@@ -115,13 +103,19 @@ cc.Class({
                 this.checkGuide(idx)
             }.bind(this));
         } else {
-            if (idx <= this.curId) {
+            var isPass = cc.sys.localStorage.getItem('guideStep' + idx);
+            var oldV = cc.sys.localStorage.getItem('guideStep');
+            if (oldV == null || oldV == undefined) {
+                oldV = -1;
+            }
+            oldV = parseInt(oldV);
+            if (isPass == 1 || idx <= oldV) {
                 return;
             }
-
+            //设置通过
+            this.setStep(idx);
             //显示引导
             this.goGuide(idx);
-            this.curId = idx;
         }
     },
 
@@ -132,6 +126,7 @@ cc.Class({
                 mainScript.buyCount.string = "Max";
                 mainScript.menuClick(null, "buyCount");
             }
+            //小可乐
             if (idx == 5) {
                 var oldStore = player.getArrayAll("pProp");
                 //仓储更新
@@ -141,13 +136,23 @@ cc.Class({
                 }
                 player.itemArraySet("pProp", 1, oldStore[1]);
             }
+            //现金道具
+            if (idx == 8) {
+                var oldStore = player.getArrayAll("pProp");
+                //仓储更新
+                var oldVal = oldStore[1][3];
+                if (oldVal < 1) {
+                    oldStore[1][3] = oldVal + 1;
+                }
+                player.itemArraySet("pProp", 1, oldStore[1]);
+            }
             this.guideSteps(idx);
         }.bind(this))
     },
 
     //引导的步骤
     guideSteps(id) {
-        //如果引导步骤大于储存的数据
+        //设置话语
         this.talkText.getComponent("LocalizedLabel").dataID = this.guideList[id].talk;
 
         //显示界面
@@ -170,9 +175,9 @@ cc.Class({
             this.getTargetShow(id);
         }
         this.node.setSiblingIndex(this.node.parent.childrenCount);
-        this.isGuiding = true;
     },
 
+    //显示目标按钮
     getTargetShow(id) {
         var targetNode = null;
         if (this.guideList[id].target != null) {
@@ -184,7 +189,7 @@ cc.Class({
         this.hand.stopAllActions();
 
         //打洞
-        this.getPosition(targetNode);
+        this.getPosition(targetNode, id);
 
         //绑定点击事件
         if (targetNode == null) {
@@ -193,18 +198,42 @@ cc.Class({
             this.touchMask.width = cc.winSize.width;
             this.touchMask.height = cc.winSize.height;
             this.touchMask.on(cc.Node.EventType.TOUCH_START, function () {
-                this.setStep(id);
                 viewManager.popView("GuideView", false);
             }.bind(this), this);
         } else {
             this.touchMask.active = false;
             targetNode.on("click", function () {
-                this.setStep(id);
+                this.hands[id].destroy();
                 viewManager.popView("GuideView", false);
                 targetNode._bubblingListeners._callbackTable.click.cancel(1);
             }.bind(this), this);
+        }
+    },
 
-            this.hand.runAction(
+    //设置开洞位置
+    getPosition(target, idx) {
+        if (target == null) {
+            var left = this.maskLeft.getComponent(cc.Widget);
+            left.right = 0/* cc.winSize.width */;
+            left.updateAlignment();
+            var right = this.maskRight.getComponent(cc.Widget);
+            right.left = 0/* cc.winSize.width */;
+            right.updateAlignment();
+            var top = this.maskTop.getComponent(cc.Widget);
+            top.bottom = 0/* cc.winSize.height / 2 */;
+            top.updateAlignment();
+            var bottom = this.maskBottom.getComponent(cc.Widget);
+            bottom.top = 0/* cc.winSize.height / 2 */;
+            bottom.updateAlignment();
+        } else {
+            this.targetNode = target;
+            var pos = viewManager.getUIPosition(target, this.maskContent);
+            var hand = cc.instantiate(this.hand);
+            this.hands[idx] = hand;
+            hand.parent = target;
+            hand.position = cc.v2(0, 20);
+            hand.active = true;
+            hand.runAction(
                 cc.repeatForever(
                     cc.sequence(
                         cc.moveBy(0.5, cc.p(0, -20)),
@@ -212,64 +241,30 @@ cc.Class({
                     )
                 )
             );
-        }
-    },
-
-    //设置开洞位置
-    getPosition(target, isPos) {
-        if (target == null) {
-            var left = this.maskLeft.getComponent(cc.Widget);
-            left.right = cc.winSize.width;
-            left.updateAlignment();
-            var right = this.maskRight.getComponent(cc.Widget);
-            right.left = cc.winSize.width;
-            right.updateAlignment();
-            var top = this.maskTop.getComponent(cc.Widget);
-            top.bottom = cc.winSize.height / 2;
-            top.updateAlignment();
-            var bottom = this.maskBottom.getComponent(cc.Widget);
-            bottom.top = cc.winSize.height / 2;
-            bottom.updateAlignment();
-        } else {
-            this.targetNode = target;
-            var pos = viewManager.getUIPosition(target, this.maskContent);
-            if (!isPos) {
-                this.hand.position = cc.v2(pos.x, pos.y + 20);
-            }
-            this.hand.active = true;
             if (target != null) {
                 this.maskLeft.height = target.height;
                 this.maskLeft.y = pos.y;
                 var left = this.maskLeft.getComponent(cc.Widget);
-                left.right = (cc.winSize.width / 2 - pos.x + (target.width / 2));
+                left.right = 0/* (cc.winSize.width / 2 - pos.x + (target.width / 2)) */;
                 left.updateAlignment();
 
                 this.maskRight.height = target.height;
                 this.maskRight.y = pos.y;
                 var right = this.maskRight.getComponent(cc.Widget);
-                right.left = (cc.winSize.width / 2 + pos.x + (target.width / 2));
+                right.left = 0/* (cc.winSize.width / 2 + pos.x + (target.width / 2)) */;
                 right.updateAlignment();
 
                 var top = this.maskTop.getComponent(cc.Widget);
-                top.bottom = (cc.winSize.height / 2 + pos.y + (target.height / 2));
+                top.bottom = 0/* (cc.winSize.height / 2 + pos.y + (target.height / 2)) */;
                 top.updateAlignment();
 
                 var bottom = this.maskBottom.getComponent(cc.Widget);
-                bottom.top = (cc.winSize.height / 2 - pos.y + (target.height / 2));
+                bottom.top = 0/* (cc.winSize.height / 2 - pos.y + (target.height / 2)) */;
                 bottom.updateAlignment();
             }
         }
     },
 
     update(dt) {
-        if (this.targetNode != null) {
-            this.countTime += dt;
-            if (this.countTime > 1) {
-                this.countTime = this.countTime - 1;
-                this.getPosition(this.targetNode, false);
-            } else {
-                this.getPosition(this.targetNode, true);
-            }
-        }
     },
 });

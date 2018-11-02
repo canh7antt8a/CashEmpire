@@ -57,6 +57,11 @@ cc.Class({
             default: false,
             visible: false,
         },
+        //防止重复购买的遮罩
+        buyMask:{
+            default: null,
+            type: cc.Node,
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -72,12 +77,16 @@ cc.Class({
         this.videoGiftUI.cd = cc.find("Bg/ScrollView/view/content/CurrencyRecharge/view/content/VideoGift/CdTime", this.node).getComponent(cc.Label);
     },
 
+    onEnable(){
+        this.buyMask.active = false;
+    },
 
     //按钮点击事件
     menuClick(event, type) {
         soundManager.playSound("btnClick");
         if (type == "recharge") {
-            var node = event.target;
+            let node = event.target;
+            this.buyMask.active = true;
             SDK().purchaseAsync(node.proId, node.proId, function (purchase) {
                 if (purchase != false && purchase != null) {
                     SDK().consumePurchaseAsync(purchase.purchaseToken, function (isOk) {
@@ -87,12 +96,14 @@ cc.Class({
                                 var diaNum = info.num;
                                 player.itemArrayAdd("pCurrency", 1, diaNum);
                                 player.itemArrayAdd("pCurrency", 2, info.price);
+                                effectManager.flyReward(10, 1, mainScript.diamonds.node, node, null, true);
                             } else {
                                 console.log(info);
                             }
                         }
                     }.bind(this))
                 }
+                this.buyMask.active = false;
             }.bind(this))
         } else if ("videoFree" == type) {
             gameApplication.checkDailyCount("videoFree", false, function (val) {

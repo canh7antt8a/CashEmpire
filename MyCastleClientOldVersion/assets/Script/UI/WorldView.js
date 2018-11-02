@@ -110,11 +110,11 @@ cc.Class({
         this.getInBtn.active = false;
         var idx = this.earth._curPageIdx;
         this.curId = idx;
-        var start = cc.winSize.width * -0.5;
+        /* var start = cc.winSize.width * -0.5;
         var moveVal = (gameApplication.gameBg.node.width - cc.winSize.width) / 4;
         var final = start - (moveVal * idx);
         gameApplication.gameBg.node.stopAllActions();
-        gameApplication.gameBg.node.runAction(cc.moveTo(0.2, cc.v2(final, gameApplication.gameBg.node.y)));
+        gameApplication.gameBg.node.runAction(cc.moveTo(0.2, cc.v2(final, gameApplication.gameBg.node.y))); */
         if (this.curId == 0) {
             this.arrow[0].active = false;
             this.arrow[1].active = true;
@@ -150,12 +150,12 @@ cc.Class({
                     }
 
                     //计算解锁所需要的声望
-                    var unlockPrestigeNum = this.countUnlockPrestige(i)
-                    this.buildingUIList[i].unlockPrestige.string = gameApplication.countUnit(unlockPrestigeNum)[3];
+                    /* var unlockPrestigeNum = this.countUnlockPrestige(i)
+                    this.buildingUIList[i].unlockPrestige.string = gameApplication.countUnit(unlockPrestigeNum)[3]; */
                     //计算解锁所需要的钱
                     var unlockMoneyNum = this.countUnlockMoney(i);
                     this.buildingUIList[i].unlockMoney.string = gameApplication.countUnit(unlockMoneyNum)[2];
-                    if (player.itemArrayGet("pCurrency", 0) >= unlockMoneyNum && player.itemArrayGet("pCurrency", 3) >= unlockPrestigeNum) {// 添加声望限制
+                    if (player.itemArrayGet("pCurrency", 0) >= unlockMoneyNum /* && player.itemArrayGet("pCurrency", 3) >= unlockPrestigeNum */) {// 添加声望限制
                         this.buildingUIList[i].unlockBtn.getComponent(cc.Button).interactable = true;
                     } else {
                         this.buildingUIList[i].unlockBtn.getComponent(cc.Button).interactable = false;
@@ -188,7 +188,7 @@ cc.Class({
             this.buildingUIList[idx].building = cc.instantiate(this.buildingItem);
             this.buildingUIList[idx].building.name = "building" + idx;
             //主体结构
-            this.buildingUIList[idx].bName = cc.find("Name", this.buildingUIList[idx].building).getComponent(cc.Sprite);
+            this.buildingUIList[idx].bName = cc.find("Name", this.buildingUIList[idx].building).getComponent("LocalizedLabel");
             this.buildingUIList[idx].top = cc.find("Top", this.buildingUIList[idx].building).getComponent(cc.Sprite);
             this.buildingUIList[idx].floor = cc.find("Floor", this.buildingUIList[idx].building).getComponent(cc.Sprite);
             this.buildingUIList[idx].content = cc.find("Floor/Content", this.buildingUIList[idx].building).getComponent(cc.Sprite);
@@ -225,9 +225,7 @@ cc.Class({
         var floorShadow = this.buildingUIList[idx].floorShadow;
         var mainShadow = this.buildingUIList[idx].mainShadow;
 
-        resManager.loadSprite("UIBuilding1.bName" + idx, function (spriteFrame) {
-            bName.spriteFrame = spriteFrame;
-        }.bind(this))
+        bName.dataID = "lang.countryName"+idx;
 
         resManager.loadSprite("UIBuilding.buildingTop" + idx, function (spriteFrame) {
             top.spriteFrame = spriteFrame;
@@ -252,6 +250,8 @@ cc.Class({
         var unLocking = this.buildingUIList[idx].unLocking;
         var diamondFinish = this.buildingUIList[idx].diamondFinish;
         var videoFinish = this.buildingUIList[idx].videoFinish;
+
+        unlockPrestige.node.active = false;
 
         //判断是否解锁
         if (this.unlockList[idx] == 1) {
@@ -304,9 +304,9 @@ cc.Class({
             shadow.active = true;
             unLocking.active = false;
             goUnlock.active = true;
-            //计算解锁所需要的声望
+            /* //计算解锁所需要的声望
             var unlockPrestigeNum = this.countUnlockPrestige(idx)
-            unlockPrestige.string = gameApplication.countUnit(unlockPrestigeNum)[3];
+            unlockPrestige.string = gameApplication.countUnit(unlockPrestigeNum)[3]; */
             //计算解锁所需要的钱
             var unlockMoneyNum = this.countUnlockMoney(idx);
             unlockMoney.string = gameApplication.countUnit(unlockMoneyNum)[2];
@@ -314,7 +314,7 @@ cc.Class({
             unlockBtn.off("click")
             unlockBtn.on("click", function () {
                 this.checkRes(function () {
-                    if (player.itemArrayGet("pCurrency", 0) >= unlockMoneyNum && player.itemArrayGet("pCurrency", 3) >= unlockPrestigeNum) {// 添加声望限制
+                    if (player.itemArrayGet("pCurrency", 0) >= unlockMoneyNum/* && player.itemArrayGet("pCurrency", 3) >= unlockPrestigeNum */) {// 添加声望限制
                         //扣钱
                         player.itemArrayAdd("pCurrency", 0, -unlockMoneyNum, function () {
                             //解锁
@@ -348,6 +348,14 @@ cc.Class({
         this.buildingMask.active = true;
         this.checkRes(function () {
             this.selectWorld(this.curId);
+        }.bind(this))
+    },
+
+    //回到世界
+    backWorld(){
+        this.buildingMask.active = true;
+        this.checkRes(function () {
+            this.selectWorld(player.worldId);
         }.bind(this))
     },
 
@@ -408,11 +416,11 @@ cc.Class({
         if (idx == 1) {
             money = 1000000000;
         } else if (idx == 2) {
-            money = 1000000000000;
+            money = 100000000000000;
         } else if (idx == 3) {
-            money = 1000000000000000;
+            money = 100000000000000000;
         } else if (idx == 4) {
-            money = 1000000000000000000;
+            money = 100000000000000000000;
         }
         return money;
     },

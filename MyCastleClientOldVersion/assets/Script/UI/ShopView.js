@@ -170,11 +170,11 @@ cc.Class({
                                 //乐透
                                 if (node.kind == 1) {
                                     //随机倍数
-                                    var randomMul = effect.time + Math.random() * (effect.per - effect.time);
+                                    var randomMul = effect.time;
                                     var totalProfit = 0;
                                     for (var idx = 0; idx < mainScript.floorInfoList.length; idx = idx + 1) {
                                         if (mainScript.floorInfoList[idx] != null && mainScript.floorInfoList[idx] != "undefined" && mainScript.floorInfoList[idx] != undefined) {
-                                            totalProfit = totalProfit + buildManager.countProfit(idx);
+                                            totalProfit = totalProfit + (buildManager.countProfit(idx) / buildManager.countProfitTime(idx));
                                         }
                                     }
                                     //计算总钱数并保存
@@ -265,6 +265,11 @@ cc.Class({
 
     //初始化商品信息
     loadGoodItem(gId, idx) {
+        if (gId == 1 && idx != 0 && idx != 1 && idx != 2 && idx != 7 && idx != 8 && idx != 11 && idx != 12) {
+           
+        }else{
+            return;
+        }
         var info = this.selectInfo[gId].infoList[idx];
         if (this.goodList[gId][idx] == null) {
             this.goodList[gId][idx] = {};
@@ -401,9 +406,7 @@ cc.Class({
             }
         }
         curItem.parent = this.typeContent[gId];
-        if (gId == 1 && idx != 0 && idx != 1 && idx != 2) {
-            curItem.active = true;
-        }
+        curItem.active = true;
     },
 
     //确认弹窗

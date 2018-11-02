@@ -4,247 +4,247 @@
             "desc": "lang.aDesc0",
             "target": 0,
             "num": 1,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc1",
             "target": 1,
             "num": 5,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc2",
             "target": 2,
             "num": 3,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc3",
             "target": 3,
             "num": 100,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc4",
             "target": 4,
             "num": 2,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc5",
             "target": 1,
             "num": 25,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc6",
             "target": 3,
             "num": 1000,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc7",
             "target": 4,
             "num": 3,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc8",
             "target": 3,
             "num": 10000,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc9",
             "target": 1,
             "num": 50,
-            "rNum": 5
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc10",
             "target": 0,
             "num": 2,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc11",
             "target": 2,
             "num": 6,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc12",
             "target": 1,
             "num": 75,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc13",
             "target": 4,
             "num": 4,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc14",
             "target": 3,
             "num": 100000,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc15",
             "target": 0,
             "num": 3,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc16",
             "target": 2,
             "num": 9,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc17",
             "target": 1,
             "num": 100,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc18",
             "target": 2,
             "num": 12,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc19",
             "target": 1,
             "num": 125,
-            "rNum": 10
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc20",
             "target": 2,
             "num": 18,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc21",
             "target": 1,
             "num": 150,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc22",
             "target": 4,
             "num": 5,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc23",
             "target": 0,
             "num": 4,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc24",
             "target": 2,
             "num": 24,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc25",
             "target": 1,
             "num": 175,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc26",
             "target": 3,
             "num": 1000000,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc27",
             "target": 0,
             "num": 5,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc28",
             "target": 2,
             "num": 30,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc29",
             "target": 4,
             "num": 6,
-            "rNum": 15
+            "rNum": 2
         },
         {
             "desc": "lang.aDesc30",
             "target": 3,
             "num": 10000000,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc31",
             "target": 0,
             "num": 6,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc32",
             "target": 2,
             "num": 36,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc33",
             "target": 3,
             "num": 50000000,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc34",
             "target": 1,
             "num": 200,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc35",
             "target": 4,
             "num": 7,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc36",
             "target": 3,
             "num": 100000000,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc37",
             "target": 0,
             "num": 7,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc38",
             "target": 2,
             "num": 36,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc39",
             "target": 3,
             "num": 150000000,
-            "rNum": 20
+            "rNum": 3
         },
         {
             "desc": "lang.aDesc40",
             "target": 5,
             "num": 1,
-            "rNum": 25
+            "rNum": 5
         }
     ]
 }

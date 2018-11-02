@@ -88,9 +88,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2048</int>
+            <int>512</int>
             <key>height</key>
-            <int>2048</int>
+            <int>512</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -187,87 +187,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">prop/Alpaca.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>18,26,35,52</rect>
-                <key>scale9Paddings</key>
-                <rect>18,26,35,52</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/accounting.png</key>
-            <key type="filename">prop/capital.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>22,24,43,47</rect>
-                <key>scale9Paddings</key>
-                <rect>22,24,43,47</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/advancedCEO.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>20,21,39,41</rect>
-                <key>scale9Paddings</key>
-                <rect>20,21,39,41</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/bear.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>21,25,41,50</rect>
-                <key>scale9Paddings</key>
-                <rect>21,25,41,50</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/cat.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>21,22,42,44</rect>
-                <key>scale9Paddings</key>
-                <rect>21,22,42,44</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/dog.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>21,27,42,55</rect>
-                <key>scale9Paddings</key>
-                <rect>21,27,42,55</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">prop/fightChicken.png</key>
-            <key type="filename">prop/lGooChicken.png</key>
             <key type="filename">prop/magerChicken.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -278,48 +198,6 @@
                 <rect>22,31,44,62</rect>
                 <key>scale9Paddings</key>
                 <rect>22,31,44,62</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/intermediateBankCard.png</key>
-            <key type="filename">prop/juniorBankCard.png</key>
-            <key type="filename">prop/seniorBankCard.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>23,21,47,42</rect>
-                <key>scale9Paddings</key>
-                <rect>23,21,47,42</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/intermediateCEO.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>19,21,38,43</rect>
-                <key>scale9Paddings</key>
-                <rect>19,21,38,43</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/lEnergyDrinks.png</key>
-            <key type="filename">prop/mEnergyDrinks.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>15,26,30,51</rect>
-                <key>scale9Paddings</key>
-                <rect>15,26,30,51</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -337,33 +215,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">prop/mGooChicken.png</key>
-            <key type="filename">prop/sGooChicken.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>21,29,41,57</rect>
-                <key>scale9Paddings</key>
-                <rect>21,29,41,57</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/noviceCEO.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>21,22,42,45</rect>
-                <key>scale9Paddings</key>
-                <rect>21,22,42,45</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">prop/renamingCard.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -374,19 +225,6 @@
                 <rect>22,20,45,41</rect>
                 <key>scale9Paddings</key>
                 <rect>22,20,45,41</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/rookieCEO.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>24,21,48,41</rect>
-                <key>scale9Paddings</key>
-                <rect>24,21,48,41</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -403,6 +241,19 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">prop/sGooChicken.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>21,29,41,57</rect>
+                <key>scale9Paddings</key>
+                <rect>21,29,41,57</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">prop/salesPromotion.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -413,19 +264,6 @@
                 <rect>21,23,42,45</rect>
                 <key>scale9Paddings</key>
                 <rect>21,23,42,45</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">prop/tiger.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>24,25,48,49</rect>
-                <key>scale9Paddings</key>
-                <rect>24,25,48,49</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

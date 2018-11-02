@@ -93,7 +93,7 @@ cc.Class({
         this.curProfit.string = "X " + (1 + player.itemArrayGet("pCurrency", 3) / 100).toFixed(2)
         this.nexProfit.string = "X " + (1 + (player.itemArrayGet("pCurrency", 3) + getVal) / 100).toFixed(2);
         this.canGet.string = getVal;
-        var bornTimes = player.getData("BornTimes");
+        var bornTimes = player.getData("BornTimes", null, false);
         var needMoney = Math.pow(10, (3 * (bornTimes + 1)) + 3);
         if (bornTimes == 0) {
             needMoney = 180000000;
@@ -114,7 +114,7 @@ cc.Class({
             return;
         }
         this.isReborning = true;
-        var bornTimes = player.getData("BornTimes");
+        var bornTimes = player.getData("BornTimes", null, false);
         //记录重生次数
         var b = (bornTimes > 99 ? bornTimes : (bornTimes > 9 ? "0" + bornTimes : "00" + bornTimes));
         gameApplication.DataAnalytics.doEvent(b + "_reborn");
@@ -156,7 +156,7 @@ cc.Class({
 
     //计算收益
     countGet() {
-        var bornTimes = player.getData("BornTimes");
+        var bornTimes = player.getData("BornTimes", null, false);
         var canGet = 0;
         if (bornTimes == 0) {
             canGet = 200;
@@ -166,7 +166,7 @@ cc.Class({
             canGet = 500;
         } else {
             var count = bornTimes + 2;
-            var TIncome = player.getData("TotalIncome");
+            var TIncome = player.getData("TotalIncome", null, false);
             canGet = TIncome / Math.pow(10, 3 * count - 2);
         }
         return parseInt(canGet.toFixed(0));
@@ -174,9 +174,9 @@ cc.Class({
 
     //限制判断
     checkLimit() {
-        var bornTimes = player.getData("BornTimes");
+        var bornTimes = player.getData("BornTimes", null, false);
         var limit = Math.pow(10, (3 * (bornTimes + 1)) + 3);
-        var TIncome = player.getData("TotalIncome");
+        var TIncome = player.getData("TotalIncome", null, false);
         var needMoney = Math.pow(10, (3 * (bornTimes + 1)) + 3);
         if (bornTimes == 0) {
             needMoney = 180000000;

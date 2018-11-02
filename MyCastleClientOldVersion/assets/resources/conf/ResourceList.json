@@ -98,17 +98,11 @@
         "GuideView",
         "ManagerView",
         "WorkerView",
-        "AchieveView",
-        "RebornView",
-        "PrestigeView",
         "RechargeView",
-        "AdBuffView",
         "CircleView",
         "FlyGiftView",
         "InfoView",
-        "PrestigeVideoView",
-        "RankView",
-        "RebornBuffView",
+        "SettingView",
         "ShopView",
         "WarnView",
         "TrainManagerView"
@@ -317,11 +311,11 @@
             ],
             [
                 {
-                    "time": 2,
+                    "time": 1800,
                     "per": 20
                 },
                 {
-                    "time": 50,
+                    "time": 15000,
                     "per": 150
                 }
             ],
@@ -337,17 +331,17 @@
                     "per": 2
                 },
                 {
-                    "time": 28800,
+                    "time": 3600,
                     "per": 2
                 },
                 {
-                    "time": 43200,
+                    "time": 3600,
                     "per": 2
                 }
             ],
             [
                 {
-                    "time": 604800,
+                    "time": 3600,
                     "per": 4
                 }
             ],
@@ -357,17 +351,17 @@
                     "per": 10
                 },
                 {
-                    "time": 28800,
+                    "time": 3600,
                     "per": 10
                 },
                 {
-                    "time": 43200,
+                    "time": 3600,
                     "per": 10
                 }
             ],
             [
                 {
-                    "time": 7200,
+                    "time": 3600,
                     "per": 20
                 }
             ],

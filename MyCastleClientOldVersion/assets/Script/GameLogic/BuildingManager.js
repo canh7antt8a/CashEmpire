@@ -69,10 +69,40 @@ cc.Class({
         window.buildManager = this;
     },
 
+    onEnable() {
+    },
+    onDisable() {
+        this.unschedule(this.refreashBar);
+    },
+
     start() { },
+
+    //刷新进度条
+    refreashBar() {
+        if (window.mainScript == undefined || window.mainScript == null) {
+            return;
+        }
+        if (mainScript.floorInfoList == undefined || mainScript.floorInfoList == null) {
+            return;
+        }
+        for (var idx = 0; idx < mainScript.floorInfoList.length; idx = idx + 1) {
+            if (mainScript.floorInfoList[idx] != null && mainScript.floorInfoList[idx] != "undefined" && mainScript.floorInfoList[idx] != undefined) {
+                if (this.lastTime[idx] > 1000) {
+                    //加载进度条
+                    this.loadPros(idx);
+                    if (mainScript.floorList[idx] != null && mainScript.floorList[idx] != "undefined" && mainScript.floorList[idx] != undefined) {
+                        mainScript.floorList[idx].closeSprite.node.active = false;
+                    }
+                }
+            }
+        }
+    },
 
     //计算离线收益
     countOfflineProfit() {
+        if (window.mainScript == undefined || window.mainScript == null) {
+            return;
+        }
         var totalOfflineProfit = 0;
         for (var idx = 0; idx < mainScript.floorInfoList.length; idx = idx + 1) {
             if (mainScript.floorInfoList[idx] != null && mainScript.floorInfoList[idx] != "undefined" && mainScript.floorInfoList[idx] != undefined) {
@@ -84,13 +114,15 @@ cc.Class({
                     var minTime = Math.min(nowtime, limit);
                     var curManager = this.judgeHasManager(idx);
                     //判断是否有收益
-                    while (this.lastTime[idx] + this.lastNeedTime[idx] < minTime) {
+                    if (this.lastTime[idx] + this.lastNeedTime[idx] < minTime) {
+                        var count = minTime - this.lastTime[idx];
+                        var times = count / this.lastNeedTime[idx];
                         if (curManager != null) {
-                            totalOfflineProfit = totalOfflineProfit + this.countProfit(idx);
-                            this.setLastTime(idx);
+                            totalOfflineProfit = totalOfflineProfit + this.countProfit(idx) * times;
+                            this.lastTime[idx] = this.lastTime[idx] + this.lastNeedTime[idx] * times;
+                            player.itemArraySet("myFloorsTime", idx, this.lastTime[idx]);
                         } else {
                             totalOfflineProfit = totalOfflineProfit + this.countProfit(idx);
-                            break;
                         }
                     }
                     //将店铺开启
@@ -102,7 +134,6 @@ cc.Class({
             }
         }
         totalOfflineProfit = 0.1 * totalOfflineProfit;
-
         //永久性道具的加成计算
         var effectIdx = this.goodSkills[0][1];
         if (effectIdx >= 0) {
@@ -110,7 +141,6 @@ cc.Class({
             var per = effect.per;
             totalOfflineProfit = totalOfflineProfit * per;
         }
-
         //一次性道具的加成计算
         effectIdx = this.goodSkills[1][0];//获取一次性道具中第一种类型的使用状态
         if (effectIdx >= 0) {
@@ -121,13 +151,16 @@ cc.Class({
             //重置一次性道具的使用状态
             this.goodSkills[1][0] = -1;
             player.itemArraySet("goodSkills", 1, this.goodSkills[1]);
-        }
-
+        };
         if (totalOfflineProfit > 0) {
             viewManager.popView("OfflineProfitView", true, function (view) {
                 view.getComponent("OfflineProfitView").showView(totalOfflineProfit);
             }.bind(this));
         }
+        this.scheduleOnce(function(){
+            cc.find("Canvas/LoadingView").active = false;
+        }.bind(this),1)
+        this.schedule(this.refreashBar, 1);
     },
 
     //开店
@@ -140,9 +173,14 @@ cc.Class({
             player.itemArrayAdd("pCurrency", 0, -openCost, function () {
                 //转盘显示
                 var cCount = player.itemArrayGet("CircleCount", 0);
-                if (cCount == -1 && idx == 5) {
+                if (cCount == -1 && idx == 4) {
                     player.itemArraySet("CircleCount", 0, 1);
                     guideScript.checkGuide(6);
+                }
+
+                //引导世界
+                if (idx == 5) {
+                    guideScript.checkGuide(7);
                 }
 
                 var node = mainScript.floorList[idx].closeSprite.node;
@@ -152,12 +190,12 @@ cc.Class({
                 }
 
                 //记录开楼
-                var bornTimes = player.getData("BornTimes");
+                var bornTimes = player.getData("BornTimes", null, false);
                 var b = (bornTimes > 99 ? bornTimes : (bornTimes > 9 ? "0" + bornTimes : "00" + bornTimes));
                 gameApplication.DataAnalytics.doEvent(b + "_" + idx);
 
                 //开启楼层成就
-                player.itemArrayAdd("pAchievement", 4,  1);
+                player.itemArrayAdd("pAchievement", 4, 1);
 
                 soundManager.playSound("openFloor");
                 //储存开店数据
@@ -189,7 +227,7 @@ cc.Class({
         if (disVal == null) {
             disVal = 0;
         }
-        if (this.lastTime[idx] != 0 && this.lastTime[idx] != -1 && this.lastTime[idx] != null && this.lastTime[idx] != "undefined") {
+        if (this.lastTime[idx] != 0 && this.lastTime[idx] != -1 && this.lastTime[idx] != null && this.lastTime[idx] != "undefined" && this.lastTime[idx] < gameApplication.getCurTime()) {
             this.lastNeedTime[idx] = this.countProfitTime(idx);
             this.lastTime[idx] = this.lastTime[idx] + this.lastNeedTime[idx];
         } else {
@@ -244,6 +282,12 @@ cc.Class({
         if (mainScript.floorInfoList.length <= 0) {
             return;
         }
+
+        //引导使用现金道具
+        if (idx == 9) {
+            guideScript.checkGuide(8);
+        }
+
         //获得收益
         var profit = this.countProfit(idx);
         this.getProfit(idx);
@@ -280,7 +324,7 @@ cc.Class({
             //扣钱并升级
             player.itemArrayAdd("pCurrency", 0, -maxNum.cost, function () {
                 //升级店铺成就
-                player.itemArrayAdd("pAchievement", 1,  num);
+                player.itemArrayAdd("pAchievement", 1, num);
 
                 soundManager.playSound("train");
                 //升级特效
@@ -426,7 +470,7 @@ cc.Class({
         }
 
         //声望技能效果
-        var preSkillList = prestigeScript.selectInfo[1].infoList;
+        /* var preSkillList = prestigeScript.selectInfo[1].infoList;
         var prePercent = 0;
         for (var i = 0; i < preSkillList.length; i = i + 1) {
             var useTime = player.itemArrayGet("preSkill", i);
@@ -439,7 +483,7 @@ cc.Class({
         }
         if (prePercent > 0) {
             profit = profit * prePercent;
-        }
+        } */
 
 
         //永久性道具的加成计算
@@ -505,16 +549,16 @@ cc.Class({
         profit = profit * (1 + prestige);
 
         //处理视频广告增益效果
-        var adBuffTime = player.getData("AdBuffTime");
+        var adBuffTime = player.getData("AdBuffTime", null, false);
         var curTime = gameApplication.getCurTime();
         //是否还有增益时间
         if (adBuffTime >= getProfitTime) {
             isShowEffect = true;
-            effectVal = effectVal + 2;
-            profit = profit + (2 * baseProfit);
+            effectVal = effectVal + 3;//获得三倍增益
+            profit = profit + (3 * baseProfit);
         } else if (adBuffTime >= curTime) {
             isShowEffect = true;
-            effectVal = effectVal + 2;
+            effectVal = effectVal + 3;
         }
 
         //进度条时间小于一的收益处理

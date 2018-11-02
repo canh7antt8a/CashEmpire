@@ -1,4 +1,3 @@
-import { SIGPROF } from "constants";
 var DataAnalytics = require("../SDK/DataAnalytics");
 var MTA = require("../SDK/MTA");
 cc.Class({
@@ -52,6 +51,10 @@ cc.Class({
             default: null,
             visible: false,
         },
+        trueTime:{
+            default: 0,
+            visible: false,
+        },
     },
 
     onEnable() {
@@ -70,6 +73,7 @@ cc.Class({
     },
 
     onLoad() {
+
         MTA.init();
         cc.director.setDisplayStats(false);
         //初始化ASDK
@@ -79,6 +83,13 @@ cc.Class({
         SDK().init(function () {
             DataAnalytics.login(SDK().getSelfInfo().id);
         });
+        
+        SDK().getTime();
+        this.scheduleOnce(function(){
+            SDK().getTime(function (time) {
+                this.trueTime = time;
+            }.bind(this));
+        }.bind(this),30)
 
         //初始化各系统脚本
         window.gameApplication = this;
@@ -128,7 +139,9 @@ cc.Class({
     },
 
     goWorldView(isFirst) {
+        //开始的遮罩
         cc.find("Canvas/WorldView/BeginMask").active = true;
+
         //隐藏大楼界面
         viewManager.showView("MainView", false, true);
         viewManager.showView("WorldView", true, false, null, function (view) {
@@ -136,10 +149,12 @@ cc.Class({
             cc.find("Canvas/WorldView/BeginMask").active = false;
         }.bind(this));
 
+        //返回大楼选择界面时将所有大楼活动停止
         if (!isFirst) {
             this.stopAllAction();
         }
-        if(window.managerScript != null && window.managerScript != undefined){
+        //卸载顾客
+        if (window.managerScript != null && window.managerScript != undefined) {
             managerScript.unLoadCustomer();
         }
     },
@@ -169,6 +184,19 @@ cc.Class({
     countGameTime() {
         player.itemArrayAdd("pScore", 5, 3);
         player.itemArraySet("pScore", 8, (new Date().getTime() / 1000));
+
+        if(this.trueTime != 0 && this.trueTime != 100000000000000000){
+            this.trueTime = this.trueTime + 3;
+            let nowTime = new Date().getTime() / 1000;
+            if (Math.abs(this.trueTime - nowTime) > 3600) {
+                this.warnTips("lang.errorTime",function(){
+                    SDK().quit();
+                    cc.game.end();
+                }.bind(this))
+                this.trueTime = 100000000000000000;
+            }
+        }
+
         if (this.gameBg == null) {
             return;
         }
@@ -315,7 +343,7 @@ cc.Class({
         var randomType = Math.floor(Math.random() * 2.99);
         effectManager.flyGift(randomType, function (giftPos) {
             var val = Math.random();
-            if (val < 0.05) {
+            if (val < 0) {
                 viewManager.popView("FlyGiftView", true, function (view) {
                     var bg = cc.find("Bg", view);
                     //初始化
@@ -356,7 +384,7 @@ cc.Class({
                     DiamondView.active = true;
                     bg.active = true;
                 }.bind(this));
-            } else if (val < 0.65) {
+            } else if (val < 0) {
                 //随机收益
                 var randomMul = 10 + Math.random() * 5;
                 var totalProfit = 0;

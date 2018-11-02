@@ -46,9 +46,9 @@ cc.Class({
         this.textLabel = cc.find("House/Wave/Text", this.node).getComponent("LocalizedLabel");
     },
 
-    onEnable() {},
+    onEnable() { },
 
-    goLoading(){
+    goLoading() {
         if (!this.isLoad) {
             //加载界面进度条回调
             this.gameApplication.viewManager.node.on("loadPop", this.dealPro, this);
@@ -83,9 +83,6 @@ cc.Class({
     goMain() {
         viewManager.showView("MainView", true, true);
         this.initResource();
-        this.scheduleOnce(function () {
-            this.node.active = false;
-        }.bind(this), 1)
     },
 
     //初始化资源
@@ -103,8 +100,8 @@ cc.Class({
             //读取玩家的商品技能列表
             buildManager.goodSkills = player.getArrayAll("goodSkills");
 
-
-            buildManager.curBigLevel = player.getData("AchieveLevel");
+            //大楼的等级
+            buildManager.curBigLevel = player.getData("AchieveLevel", null, false);
 
             //商品技能效果列表
             buildManager.goodSkillsEffect = cof.goodSkillsEffect;

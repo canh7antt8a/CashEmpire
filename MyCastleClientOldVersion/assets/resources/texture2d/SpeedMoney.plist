@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>speedParticle.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{67,72}</string>
+                <key>spriteSourceSize</key>
+                <string>{67,72}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{67,72}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>SpeedMoney.png</string>
+            <key>size</key>
+            <string>{69,74}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:517f610d35c947da9415abf344c5dc6b:042edff786382cf51af5f5f844f75eef:ec4a2441f5e76f655783299fc4a5f0bb$</string>
+            <key>textureFileName</key>
+            <string>SpeedMoney.png</string>
+        </dict>
+    </dict>
+</plist>
