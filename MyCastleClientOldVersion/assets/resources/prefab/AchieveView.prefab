@@ -993,12 +993,12 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 0.5,
       "y": 0.5
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
+      "width": 580,
       "height": 60
     },
     "_rotationX": 0,
@@ -1007,7 +1007,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -260,
+      "x": 0,
       "y": 0
     },
     "_skewX": 0,
@@ -1026,7 +1026,7 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 40,
+    "_actualFontSize": 33,
     "_fontSize": 40,
     "_lineHeight": 60,
     "_enableWrapText": true,
@@ -1039,7 +1039,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0
+    "_N$overflow": 2
   },
   {
     "__type__": "744dcs4DCdNprNhG0xwq6FK",
@@ -1078,8 +1078,8 @@
     "_enabled": true,
     "isAlignOnce": true,
     "_target": null,
-    "_alignFlags": 9,
-    "_left": 30,
+    "_alignFlags": 41,
+    "_left": 0,
     "_right": 0,
     "_top": 5,
     "_bottom": 0,
@@ -1091,7 +1091,7 @@
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
-    "_originalWidth": 0,
+    "_originalWidth": 300,
     "_originalHeight": 0
   },
   {

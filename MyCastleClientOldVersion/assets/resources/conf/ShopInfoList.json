@@ -144,7 +144,7 @@
                     },
                     {
                         "name": "lang.shopTransientBuff6",
-                        "price": 70,
+                        "price": 300,
                         "type": 1,
                         "desc": "lang.shopTransientBuffDesc6",
                         "pic": "SpProp.sEnergyDrinks",
@@ -177,7 +177,7 @@
                     },
                     {
                         "name": "lang.shopTransientBuff9",
-                        "price": 2700,
+                        "price": 600,
                         "type": 1,
                         "desc": "lang.shopTransientBuffDesc9",
                         "pic": "SpProp.salesPromotion",
@@ -188,7 +188,7 @@
                     },
                     {
                         "name": "lang.shopTransientBuff10",
-                        "price": 300,
+                        "price": 1200,
                         "type": 1,
                         "desc": "lang.shopTransientBuffDesc10",
                         "pic": "SpProp.sGooChicken",
@@ -232,7 +232,7 @@
                     },
                     {
                         "name": "lang.shopTransientBuff14",
-                        "price": 3000,
+                        "price": 4800,
                         "type": 1,
                         "desc": "lang.shopTransientBuffDesc14",
                         "pic": "SpProp.magerChicken",

@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>4.9.0</string>
+        <string>4.10.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -217,10 +217,19 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">manager/m0-0.png</key>
+            <key type="filename">manager/m0-1.png</key>
+            <key type="filename">manager/m0-2.png</key>
             <key type="filename">manager/m0.png</key>
             <key type="filename">manager/m1.png</key>
+            <key type="filename">manager/m2-0.png</key>
+            <key type="filename">manager/m2-1.png</key>
+            <key type="filename">manager/m2-2.png</key>
             <key type="filename">manager/m2.png</key>
             <key type="filename">manager/m3.png</key>
+            <key type="filename">manager/m4-0.png</key>
+            <key type="filename">manager/m4-1.png</key>
+            <key type="filename">manager/m4-2.png</key>
             <key type="filename">manager/m4.png</key>
             <key type="filename">manager/m5.png</key>
             <key type="filename">manager/m6.png</key>

@@ -781,7 +781,7 @@ cc.Class({
             if (adBuffTime < now) {
                 gameApplication.onVideoBtnClick(function (isOK) {
                     if (isOK) {
-                        var buffTime = 60;
+                        var buffTime = 180;
                         player.setData("AdBuffTime", now + buffTime);
                     }
                 }.bind(this), 0);

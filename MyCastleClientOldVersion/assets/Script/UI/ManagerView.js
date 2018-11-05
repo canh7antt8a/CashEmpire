@@ -65,8 +65,8 @@ cc.Class({
     start() {
     },
 
-    onEnable() {},
-    onDisable() {},
+    onEnable() { },
+    onDisable() { },
 
     refreashVal() {
     },
@@ -118,7 +118,7 @@ cc.Class({
                 if (idx == null && this.managerInfoList[i][0] != -1) {
                     //加载楼层的管家
                     this.loadFloorManager(i);
-                } 
+                }
             } else {
                 if (mainScript.floorList[i] != null) {
                     mainScript.floorList[i].manager.active = false;
@@ -256,7 +256,7 @@ cc.Class({
             mSkillSprite.spriteFrame = spriteFrame;
             mSkillSprite.node.active = true;
         }.bind(this));
-        
+
         //设置技能图标
         resManager.loadSprite(this.managerInfoList[idx][11], function (spriteFrame) {
             mSkillSprite.spriteFrame = spriteFrame;
@@ -283,8 +283,12 @@ cc.Class({
 
         //设置楼层管家的样子
         var body = floorDetail.manager.getComponent(dragonBones.ArmatureDisplay);
-        var name = "Manager/m" + idx/* this.managerInfoList[idx][1] + "/" + this.managerInfoList[idx][10] */;
-
+        var name = "Manager/m" + idx;/* this.managerInfoList[idx][1] + "/" + this.managerInfoList[idx][10] */;
+        if (player.worldId == 0 || player.worldId == 1 || player.worldId == 2) {
+            if (idx == 0 || idx == 2 || idx == 4) {
+                name = "Manager/" + player.worldId + "m" + idx;
+            }
+        }
         resManager.loadBone(name, function (bone) {
             if (bone == null || bone.length == 0) {
                 return;
