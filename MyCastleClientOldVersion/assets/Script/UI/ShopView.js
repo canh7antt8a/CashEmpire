@@ -66,12 +66,29 @@ cc.Class({
             default: [],
             visible: false,
         },
+        freeSpeedNode: {
+            default: null,
+            type: cc.Node,
+        },
+        freeSpeedBtn: {
+            default: null,
+            type: cc.Button,
+        },
+        freeSpeedMark: {
+            default: null,
+            type: cc.Node,
+        },
+        freeSpeedText: {
+            default: null,
+            visible: false,
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
         window.shopScript = this;
+        this.freeSpeedText = cc.find("Bg/GoodView/ScrollView/view/content/Free/Buy/Price",this.node).getComponent("LocalizedLabel");
     },
 
 
@@ -200,6 +217,20 @@ cc.Class({
                     gameApplication.warnTips("lang.storeUsing");
                 }
             }
+        }else if (type == "FreeSpeed") {
+            //处理视频广告增益效果
+            var adBuffTime = player.getData("AdBuffTime", null, false);
+            var now = gameApplication.getCurTime();
+            //是否还有增益时间
+            if (adBuffTime+120 < now) {
+                gameApplication.onVideoBtnClick(function (isOK) {
+                    if (isOK) {
+                        var buffTime = 180;
+                        now = gameApplication.getCurTime();
+                        player.setData("AdBuffTime", now + buffTime);
+                    }
+                }.bind(this), 0);
+            }
         }
     },
 
@@ -228,6 +259,21 @@ cc.Class({
         this.goodList[1][3].coinNum.node.active = true;
         this.goodList[1][4].coinNum.string = gameApplication.countUnit(totalProfit * 15000)[2];
         this.goodList[1][4].coinNum.node.active = true;
+
+        var adBuffTime = player.getData("AdBuffTime", null, false);
+        var now = gameApplication.getCurTime();
+        if(adBuffTime + 120 < now){
+            this.freeSpeedText.dataID = "lang.rechargeFree";
+            this.freeSpeedBtn.interactable = true;
+            this.freeSpeedMark.active = true;
+            mainScript.shopMark.active = true;
+        }else{
+            var cd = adBuffTime + 120 - now;
+            this.freeSpeedText.dataID = gameApplication.countTime(cd)[0];
+            this.freeSpeedBtn.interactable = false;
+            this.freeSpeedMark.active = false;
+            mainScript.shopMark.active = false;
+        }
     },
 
     start() {
@@ -393,6 +439,7 @@ cc.Class({
             this.typeContent[gId] = cc.instantiate(this.typeContentItem);
             this.typeContent[gId].name = "Content" + gId;
             this.typeContent[gId].parent = this.goodContent;
+            this.freeSpeedNode.parent = this.typeContent[gId];
             var titelName = cc.find("Titel/Bg/Text", this.typeContent[gId]).getComponent("LocalizedLabel");
             titelName.dataID = this.selectInfo[gId].type;
             titelName.node.parent.parent.active = false;

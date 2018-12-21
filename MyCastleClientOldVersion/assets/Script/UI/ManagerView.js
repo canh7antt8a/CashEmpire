@@ -131,58 +131,46 @@ cc.Class({
 
     //加载顾客的模样
     loadCostomer(floorDetail, random, idx) {
-        resManager.loadSprite("Customer.customer" + random, function (spriteFrame) {
-            floorDetail.cus.spriteFrame = spriteFrame;
+        var body = floorDetail.cus;
+        resManager.loadBone("Customer/C" + random, function (bone) {
+            if (bone == null || bone.length == 0) {
+                return;
+            }
+            body.dragonAsset = bone[0];
+            body.dragonAtlasAsset = bone[3];
+            floorDetail.manager.active = true;
+            body.armatureName = 'armatureName';
+            body.playAnimation("walking", -1);
             floorDetail.cus.node.active = true;
-            floorDetail.cus.sizeMode = cc.Sprite.SizeMode.TRIMMED;
         }.bind(this));
 
         //顾客活动
         if (this.customerCbList[idx] == null) {
             var time = 3;
             this.customerCbList[idx] = function () {
-                var random = Math.random();
-                if (random > 0.9 && this.customerCbTimes[idx] != 1) {
-                    floorDetail.cus.node.stopAllActions();
+                if (this.customerCbTimes[idx] == 1) {
+                    floorDetail.cus.node.runAction(cc.fadeIn(2));
+                }
+                if (this.customerCbTimes[idx] == 20) {
+                    var randomVal = -((floorDetail.cus.node.parent.width / 2) - 50);
+                    floorDetail.cus.node.scaleX = 0.6;
+                    floorDetail.cus.node.runAction(
+                        cc.sequence(
+                            cc.moveTo(time, cc.v2(randomVal, 0)),
+                            cc.fadeOut(0.5)
+                        )
+                    )
                 } else {
-                    if (this.customerCbTimes[idx] == 1) {
-                        floorDetail.cus.node.runAction(cc.fadeIn(2));
-                    }
                     var randomVal = Math.random() * ((floorDetail.cus.node.parent.width / 2) - 50);
-                    var roVal = 20 * (randomVal / floorDetail.cus.node.parent.width);
-                    floorDetail.cus.node.rotation = -0.5 * roVal;
                     if (floorDetail.cus.node.x > 0) {
                         floorDetail.cus.node.scaleX = Math.abs(floorDetail.cus.node.scaleX);
-                        floorDetail.cus.node.runAction(
-                            cc.spawn(
-                                cc.repeat(
-                                    cc.sequence(
-                                        cc.rotateBy(time / 10, roVal),
-                                        cc.rotateBy(time / 10, -roVal)
-                                    ), 10
-                                ),
-                                cc.moveBy(time, cc.p(-randomVal, 0))
-                            )
-                        )
+                        floorDetail.cus.node.runAction(cc.moveBy(time, cc.p(-randomVal, 0)))
                     } else {
                         floorDetail.cus.node.scaleX = -Math.abs(floorDetail.cus.node.scaleX);
-                        floorDetail.cus.node.runAction(
-                            cc.spawn(
-                                cc.repeat(
-                                    cc.sequence(
-                                        cc.rotateBy(time / 10, roVal),
-                                        cc.rotateBy(time / 10, -roVal)
-                                    ), 10
-                                ),
-                                cc.moveBy(time, cc.p(randomVal * 0.3, 0))
-                            )
-                        )
+                        floorDetail.cus.node.runAction(cc.moveBy(time, cc.p(randomVal * 0.3, 0)))
                     }
                 }
                 this.customerCbTimes[idx] = this.customerCbTimes[idx] + 1;
-                if (this.customerCbTimes[idx] == 20) {
-                    floorDetail.cus.node.runAction(cc.fadeOut(2));
-                }
             }.bind(this);
             this.customerCbTimes[idx] = 1;
             this.schedule(this.customerCbList[idx], time, 20);

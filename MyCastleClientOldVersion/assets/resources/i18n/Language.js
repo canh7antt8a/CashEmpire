@@ -15,7 +15,7 @@ window.i18n.languages['en'] = {
         "shopTitel": "BOOST",
         //商品已存在提示
         "shopExistWarm": "You already has it!",
-        "shopNoMoney": "No enough money!",
+        "shopNoMoney": "No enough cash!",
         //商店商品类型
         "shopType0": "Permanent",
         "shopType1": "OneTime",

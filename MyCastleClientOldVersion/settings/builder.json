@@ -10,7 +10,7 @@
   "inlineSpriteFrames_native": true,
   "jailbreakPlatform": false,
   "md5Cache": true,
-  "mergeStartScene": false,
+  "mergeStartScene": true,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,
   "orientation": {
@@ -25,6 +25,7 @@
     "REMOTE_SERVER_ROOT": "",
     "orientation": "portrait"
   },
+  "renderMode": "0",
   "startScene": "2d2f792f-a40c-49bb-a189-ed176a246e49",
   "title": "MyCastle",
   "webOrientation": "portrait",
@@ -36,6 +37,5 @@
     "subContext": ""
   },
   "xxteaKey": "45b6a69f-48fd-47",
-  "zipCompressJs": true,
-  "renderMode": "0"
+  "zipCompressJs": true
 }

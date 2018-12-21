@@ -79,9 +79,9 @@ cc.Class({
 
     onEnable() {
         this.schedule(this.refreashVal, 1);
-        this.scheduleOnce(function(){
+        this.scheduleOnce(function () {
             this.getInText.getComponent("LocalizedLabel").dataID = "lang.selectWorld";
-        }.bind(this),1)
+        }.bind(this), 1)
     },
     onDisable() {
         this.unschedule(this.refreashVal);
@@ -121,7 +121,7 @@ cc.Class({
         } else if (this.curId == 4) {
             this.arrow[0].active = true;
             this.arrow[1].active = false;
-        }else{
+        } else {
             this.arrow[0].active = true;
             this.arrow[1].active = true;
         }
@@ -225,7 +225,7 @@ cc.Class({
         var floorShadow = this.buildingUIList[idx].floorShadow;
         var mainShadow = this.buildingUIList[idx].mainShadow;
 
-        bName.dataID = "lang.countryName"+idx;
+        bName.dataID = "lang.countryName" + idx;
 
         resManager.loadSprite("UIBuilding.buildingTop" + idx, function (spriteFrame) {
             top.spriteFrame = spriteFrame;
@@ -268,7 +268,7 @@ cc.Class({
                 diamondFinish.off("click")
                 diamondFinish.on("click", function () {
                     this.checkRes(function () {
-                        if (player.itemArrayGet("pCurrency", 1) >= diamondNeed) {// 添加声望限制
+                        if (player.itemArrayGet("pCurrency", 1) >= diamondNeed) {
                             //扣200钻石
                             player.itemArrayAdd("pCurrency", 1, -diamondNeed, function () {
                                 //直接解锁大楼
@@ -277,6 +277,9 @@ cc.Class({
                                     this.loadBuilding(idx);
                                 }.bind(this));
                             }.bind(this))
+                        }else{
+                            console.log(1)
+                            gameApplication.popBuyDiamond();
                         }
                     }.bind(this))
                 }.bind(this), this);
@@ -300,6 +303,14 @@ cc.Class({
                     }.bind(this))
                 }.bind(this), this)
             }
+            //处理地图红点显示
+            var unlockNum = 0;
+            if (idx >= 4) {
+                unlockNum = -1;
+            } else {
+                unlockNum = this.countUnlockMoney(idx + 1);
+            }
+            cc.sys.localStorage.setItem("unlockWorld", unlockNum);
         } else {
             shadow.active = true;
             unLocking.active = false;
@@ -352,7 +363,7 @@ cc.Class({
     },
 
     //回到世界
-    backWorld(){
+    backWorld() {
         this.buildingMask.active = true;
         this.checkRes(function () {
             this.selectWorld(player.worldId);

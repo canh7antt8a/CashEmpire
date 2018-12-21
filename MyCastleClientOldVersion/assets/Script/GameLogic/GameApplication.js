@@ -51,7 +51,7 @@ cc.Class({
             default: null,
             visible: false,
         },
-        trueTime:{
+        trueTime: {
             default: 0,
             visible: false,
         },
@@ -83,13 +83,13 @@ cc.Class({
         SDK().init(function () {
             DataAnalytics.login(SDK().getSelfInfo().id);
         });
-        
+
         SDK().getTime();
-        this.scheduleOnce(function(){
+        this.scheduleOnce(function () {
             SDK().getTime(function (time) {
                 this.trueTime = time;
             }.bind(this));
-        }.bind(this),30)
+        }.bind(this), 30)
 
         //初始化各系统脚本
         window.gameApplication = this;
@@ -185,11 +185,11 @@ cc.Class({
         player.itemArrayAdd("pScore", 5, 3);
         player.itemArraySet("pScore", 8, (new Date().getTime() / 1000));
 
-        if(this.trueTime != 0 && this.trueTime != 100000000000000000){
+        if (this.trueTime != 0 && this.trueTime != 100000000000000000) {
             this.trueTime = this.trueTime + 3;
             let nowTime = new Date().getTime() / 1000;
             if (Math.abs(this.trueTime - nowTime) > 3600) {
-                this.warnTips("lang.errorTime",function(){
+                this.warnTips("lang.errorTime", function () {
                     SDK().quit();
                     cc.game.end();
                 }.bind(this))
@@ -469,6 +469,72 @@ cc.Class({
             view.active = true;
         }.bind(this));
 
+    },
+
+    //弹出购买钻石的界面
+    popBuyDiamond() {
+        if (cc.sys.os != cc.sys.OS_IOS) {
+            viewManager.popView("DiamondBuy", true, function (view) {
+                //初始化
+                var closeBtn = cc.find("Bg/Close", view);
+                var buyBtn = cc.find("Bg/Btn", view);
+                //绑定事件
+                closeBtn.off("click");
+                closeBtn.on("click", function () {
+                    viewManager.popView("DiamondBuy", false);
+                    viewManager.popView("RechargeView", true);
+                }.bind(this), this)
+                buyBtn.off("click");
+                buyBtn.on("click", function () {
+                    //钻石购买按钮点击
+                    gameApplication.DataAnalytics.doEvent("DiamondBuy");
+                    SDK().purchaseAsync(1004, 1004, function (purchase) {
+                        if (purchase != false && purchase != null) {
+                            SDK().consumePurchaseAsync(purchase.purchaseToken, function (isOk) {
+                                if (isOk) {
+                                    resManager.loadConfig("RechargeList", function (cof) {
+                                        var goodInfoList = cof.rechargeList.typeList;
+                                        var info = goodInfoList[0].infoList[3];
+
+                                        var diaNum = info.num;
+                                        player.itemArrayAdd("pCurrency", 1, diaNum);
+                                        player.itemArrayAdd("pCurrency", 2, info.price);
+                                        effectManager.flyReward(10, 1, mainScript.diamonds.node, buyBtn, null, true);
+                                    });
+                                    viewManager.popView("DiamondBuy", false);
+                                }
+                            }.bind(this))
+                        }
+                    }.bind(this))
+                }.bind(this), this)
+            }.bind(this));
+        }
+    },
+
+    //弹出看视频获得钱的界面
+    popVideoCash() {
+        viewManager.popView("GetMoreCash", true, function (view) {
+            var buyBtn = cc.find("Bg/Btn", view);
+            buyBtn.off("click");
+            buyBtn.on("click", function () {
+                //钻石购买按钮点击
+                gameApplication.DataAnalytics.doEvent("GetMoreCash");
+                gameApplication.onVideoBtnClick(function (isOK) {
+                    if (isOK) {
+                        var totalProfit = 0;
+                        for (var idx = 0; idx < mainScript.floorInfoList.length; idx = idx + 1) {
+                            if (mainScript.floorInfoList[idx] != null && mainScript.floorInfoList[idx] != "undefined" && mainScript.floorInfoList[idx] != undefined) {
+                                totalProfit = totalProfit + (buildManager.countProfit(idx) / buildManager.countProfitTime(idx));
+                            }
+                        }
+                        totalProfit = totalProfit * 180;
+                        player.itemArrayAdd("pCurrency", 0, totalProfit);
+                        effectManager.flyReward(10, 0, mainScript.coins.node, buyBtn, null, true);
+                        viewManager.popView("GetMoreCash", false);
+                    }
+                }.bind(this), 0)
+            }.bind(this), this)
+        }.bind(this));
     },
 
     //提示窗

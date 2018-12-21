@@ -182,10 +182,10 @@ cc.Class({
             needMoney = 180000000;
         }
         if (TIncome >= limit && player.itemArrayGet("pCurrency", 0) >= needMoney) {
-            mainScript.rebornMark.active = true;
+            //mainScript.rebornMark.active = true;
             return true;
         } else {
-            mainScript.rebornMark.active = false;
+            //mainScript.rebornMark.active = false;
             return false;
         }
     },

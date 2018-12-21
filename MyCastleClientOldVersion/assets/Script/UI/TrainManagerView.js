@@ -52,6 +52,18 @@ cc.Class({
             default: [],
             type: [cc.Label],
         },
+        trainBtn: {
+            default: null,
+            type: cc.Node,
+        },
+        trainCost: {
+            default: null,
+            type: cc.Label,
+        },
+        trainCostOutLine: {
+            default: null,
+            type: cc.LabelOutline,
+        },
         trainBtnList: {
             default: [],
             type: [cc.Button],
@@ -84,7 +96,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
+    onLoad() {
         window.trainScript = this;
         this.maxLevel = 9;
     },
@@ -101,7 +113,13 @@ cc.Class({
         this.curManagerIdx = idx;
         this.curInfo = managerScript.managerInfoList[idx];
 
-        resManager.loadSprite(managerScript.managerCof[idx].pic, function (spriteFrame) {
+        var picName = managerScript.managerCof[idx].pic;
+        if (player.worldId == 0 || player.worldId == 1 || player.worldId == 2) {
+            if (idx == 0 || idx == 2 || idx == 4) {
+                picName = "UIManager.m" + idx + "-" + player.worldId;
+            }
+        }
+        resManager.loadSprite(picName, function (spriteFrame) {
             this.head.spriteFrame = spriteFrame;
         }.bind(this));
 
@@ -133,6 +151,19 @@ cc.Class({
 
         this.sCd.string = managerScript.countSkillCd(this.curInfo[9]);
 
+        if (this.curInfo[5] < this.maxLevel) {
+            this.initTrainBtn();
+            var cost = this.countCost(5) * 3;
+            this.trainCost.string = gameApplication.countUnit(cost)[2];
+            if (cost > player.itemArrayGet("pCurrency", 0)) {
+                this.trainBtn.interactable = false;
+                this.trainCostOutLine.enabled = true;
+            } else {
+                this.trainBtn.interactable = true;
+                this.trainCostOutLine.enabled = false;
+            }
+        }
+
         for (var i = 0; i < 3; i = i + 1) {
             this.prosList[i].progress = this.curInfo[5 + i] / this.maxLevel;
 
@@ -146,11 +177,11 @@ cc.Class({
             } else if (i == 2) {
                 var sLV = this.curInfo[7];
                 var val = 60 * Math.pow(1.1, sLV);
-                var nexVal = 60 * Math.pow(1.1, (sLV + 1) );
+                var nexVal = 60 * Math.pow(1.1, (sLV + 1));
                 this.valList[i].string = val.toFixed(2) + "s (+" + (nexVal - val).toFixed(2) + "s)";
             }
 
-            if (this.curInfo[5 + i] < this.maxLevel) {
+            /* if (this.curInfo[5 + i] < this.maxLevel) {
                 this.initTrainBtn(i);
                 var cost = this.countCost(5 + i);
                 this.trainCostList[i].string = gameApplication.countUnit(cost)[2];
@@ -162,32 +193,40 @@ cc.Class({
             } else {
                 this.trainBtnList[i].interactable = false;
                 this.trainCostList[i].string = "MAX";
-            }
+            } */
         }
     },
 
     //初始化训练按钮
     initTrainBtn(idx) {
-        this.trainBtnList[idx].node.off('click');
+        /* this.trainBtnList[idx].node.off('click');
         this.trainBtnList[idx].node.on('click', function (event) {
             gameApplication.soundManager.playSound("btnClick");
             this.trainSkill(idx + 5);
+        }.bind(this), this) */
+
+        this.trainBtn.off('click');
+        this.trainBtn.on('click', function (event) {
+            gameApplication.soundManager.playSound("btnClick");
+            this.trainSkill();
         }.bind(this), this)
     },
 
     //管家训练
-    trainSkill(type) {
+    trainSkill(/* type */) {
         if (this.isTrain) {
             return;
         }
         this.isTrain = true;
-        var cost = this.countCost(type);
-        if (cost < player.itemArrayGet("pCurrency", 0) && this.curInfo[type] < this.maxLevel) {
+        var cost = this.countCost(5/* type */)*3;
+        if (cost < player.itemArrayGet("pCurrency", 0) && this.curInfo[5/* type */] < this.maxLevel) {
             player.itemArrayAdd("pCurrency", 0, -cost, function () {
                 //升级管家成就
-                player.itemArrayAdd("pAchievement", 2,  1);
-                
-                this.curInfo[type] = this.curInfo[type] + 1;
+                player.itemArrayAdd("pAchievement", 2, 1);
+
+                this.curInfo[5] = this.curInfo[5] + 1;
+                this.curInfo[6] = this.curInfo[6] + 1;
+                this.curInfo[7] = this.curInfo[7] + 1;
                 managerScript.managerInfoList[this.curManagerIdx] = this.curInfo;
                 player.itemArraySet("myManagers", this.curManagerIdx, this.curInfo, function () {
                     this.isTrain = false;
@@ -195,16 +234,17 @@ cc.Class({
                 }.bind(this));
             }.bind(this));
         } else {
+            gameApplication.popVideoCash();
             this.isTrain = false;
         }
     },
 
     //计算训练价格
     countCost(type) {
-        if(this.curInfo[type] == 0 && this.curManagerIdx == 0){
+        if (this.curInfo[type] == 0 && this.curManagerIdx == 0) {
             return 10;
         }
-        return 10 * Math.pow(10, Math.floor(this.curInfo[type])*3);
+        return 10 * Math.pow(10, Math.floor(this.curInfo[type]) * 3);
     },
 
     // update (dt) {},

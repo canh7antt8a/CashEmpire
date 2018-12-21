@@ -140,7 +140,11 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
-        rebornMark: {
+        mapMark: {
+            default: null,
+            type: cc.Node,
+        },
+        shopMark: {
             default: null,
             type: cc.Node,
         },
@@ -248,6 +252,19 @@ cc.Class({
             return;
         }
 
+        //世界地图红点处理
+        var next = cc.sys.localStorage.getItem("unlockWorld");
+        if(player.itemArrayGet("pCurrency", 0) >= next){
+            if(next != -1){
+                this.mapMark.active = true;
+            }else{
+                this.mapMark.active = false;
+            }
+        }else{
+            this.mapMark.active = false;
+        }
+
+
         //转盘显示
         var cCount = player.itemArrayGet("CircleCount", 0);
         if (cCount == -1) {
@@ -255,7 +272,7 @@ cc.Class({
             this.videoBtn.active = false;
         } else {
             this.circleBtn.active = true;
-            this.videoBtn.active = true;
+            //this.videoBtn.active = true;
             //冷却时间
             var circleTime = player.itemArrayGet("CircleTime", 0);
             var now = gameApplication.getCurTime();
@@ -312,6 +329,8 @@ cc.Class({
                 this.floorList[i].openLock.active = true;
             }
             this.floorList[i].openCost.string = gameApplication.countUnit(cost)[2];
+            cost = buildManager.countFloorCost(i,1);
+            this.floorList[i].diamondOpenCost.string = gameApplication.countUnit(cost)[3];
         }
 
         var count = parseInt(this.buyCount.string == "MAX" ? -1 : this.buyCount.string.replace("X", ""));
@@ -424,7 +443,7 @@ cc.Class({
             this.floorList[idx].shopSprite = cc.find("Bg/ShopSprite", curItem).getComponent(cc.Sprite);
 
             //顾客
-            this.floorList[idx].cus = cc.find("Customer/C0", curItem).getComponent(cc.Sprite);
+            this.floorList[idx].cus = cc.find("Customer/C0", curItem).getComponent(dragonBones.ArmatureDisplay);
             this.floorList[idx].cus.node.active = false;
             /* this.floorList[idx].cus = [];
             this.floorList[idx].cus[0] = cc.find("Customer/C0", curItem).getComponent(cc.Sprite);
@@ -486,11 +505,15 @@ cc.Class({
             //开楼按钮
             this.floorList[idx].openNode = cc.find("OpenShop", curItem);
             this.floorList[idx].opBg = cc.find("OpenShop/Bg", curItem);
-            this.floorList[idx].openLock = cc.find("OpenShop/AlgamSprite/LockBtn", curItem);
-            this.floorList[idx].openBtn = cc.find("OpenShop/AlgamSprite/OpenBtn", curItem);
+            this.floorList[idx].openLock = cc.find("OpenShop/AlgamSprite/Cash/LockBtn", curItem);
+            this.floorList[idx].openBtn = cc.find("OpenShop/AlgamSprite/Cash/OpenBtn", curItem);
+            this.floorList[idx].openCost = cc.find("OpenShop/AlgamSprite/Cash/Cost", curItem).getComponent(cc.Label);
+            this.floorList[idx].storeSprite = cc.find("OpenShop/AlgamSprite/Cash/Sprite", curItem).getComponent(cc.Sprite);
+            //钻石开楼
+            this.floorList[idx].diamondOpenBtn = cc.find("OpenShop/AlgamSprite/Diamond/OpenBtn", curItem);
+            this.floorList[idx].diamondOpenCost = cc.find("OpenShop/AlgamSprite/Diamond/OpenBtn/Cost", curItem).getComponent(cc.Label);
+            
             this.initOpenFloor(idx);
-            this.floorList[idx].openCost = cc.find("OpenShop/AlgamSprite/Cost", curItem).getComponent(cc.Label);
-            this.floorList[idx].storeSprite = cc.find("OpenShop/AlgamSprite/Sprite", curItem).getComponent(cc.Sprite);
             resManager.loadSprite("SpAchievement.store" + idx, function (spriteFrame) {
                 this.floorList[idx].storeSprite.spriteFrame = spriteFrame;
             }.bind(this))
@@ -607,7 +630,14 @@ cc.Class({
         node.off("click");
         node.on("click", function (event) {
             gameApplication.soundManager.playSound("btnClick");
-            buildManager.openFloor(idx);
+            buildManager.openFloor(idx,0);
+        }.bind(this), this)
+
+        node = this.floorList[idx].diamondOpenBtn;
+        node.off("click");
+        node.on("click", function (event) {
+            gameApplication.soundManager.playSound("btnClick");
+            buildManager.openFloor(idx,1);
         }.bind(this), this)
     },
 

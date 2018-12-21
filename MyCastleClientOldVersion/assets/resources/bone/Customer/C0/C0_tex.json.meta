@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "240aeb0d-9be0-4bcd-853d-2cc44dceea02",
+  "atlasJson": "{\"SubTexture\":[{\"width\":17,\"y\":1,\"height\":41,\"name\":\"图层_11\",\"x\":192},{\"width\":17,\"y\":1,\"height\":69,\"name\":\"图层_11_拷贝\",\"x\":173},{\"width\":170,\"y\":1,\"height\":282,\"name\":\"组_1_拷贝\",\"x\":1}],\"width\":211,\"height\":285,\"name\":\"C0\",\"imagePath\":\"C0_tex.png\"}",
+  "texture": "057b1298-e8f2-4ffd-ab85-6eed1854a802",
+  "subMetas": {}
+}

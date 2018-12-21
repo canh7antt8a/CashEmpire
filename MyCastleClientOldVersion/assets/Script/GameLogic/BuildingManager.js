@@ -164,13 +164,13 @@ cc.Class({
     },
 
     //开店
-    openFloor(idx) {
+    openFloor(idx,type) {
         //获取执照的信息
         var info = this.licenseInfoList[idx];
         //判断是否够钱开启
-        var openCost = this.countFloorCost(idx);
-        if (player.itemArrayGet("pCurrency", 0) >= openCost) {
-            player.itemArrayAdd("pCurrency", 0, -openCost, function () {
+        var openCost = this.countFloorCost(idx,type);
+        if (player.itemArrayGet("pCurrency", type) >= openCost) {
+            player.itemArrayAdd("pCurrency", type, -openCost, function () {
                 //转盘显示
                 var cCount = player.itemArrayGet("CircleCount", 0);
                 if (cCount == -1 && idx == 4) {
@@ -210,7 +210,7 @@ cc.Class({
                 }.bind(this));
             }.bind(this));
         } else {
-            console.log("needMore");
+            gameApplication.popBuyDiamond();
         }
     },
 
@@ -390,17 +390,25 @@ cc.Class({
     },
 
     //计算开启楼层的价格
-    countFloorCost(idx) {
-        var openCost = this.levelConfig.cost[idx];
-        //处理大楼难度
-        if (player.worldId == 1) {
-            openCost = openCost * 8;
-        } else if (player.worldId == 2) {
-            openCost = openCost * 32;
-        } else if (player.worldId == 3) {
-            openCost = openCost * 96;
-        } else if (player.worldId == 4) {
-            openCost = openCost * 192;
+    countFloorCost(idx,type = 0) {
+        var openCost = 0;
+        if(type == 0 || type == null || type == undefined){
+            openCost = this.levelConfig.cost[idx];
+            //处理大楼难度
+            if (player.worldId == 1) {
+                openCost = openCost * 8;
+            } else if (player.worldId == 2) {
+                openCost = openCost * 32;
+            } else if (player.worldId == 3) {
+                openCost = openCost * 96;
+            } else if (player.worldId == 4) {
+                openCost = openCost * 192;
+            }
+        }else if(type == 1){
+            openCost = this.levelConfig.diamond[idx];
+            if(player.worldId != 0){
+                openCost = openCost + 100;
+            }
         }
         return parseFloat(openCost.toFixed(3));
     },
@@ -466,7 +474,8 @@ cc.Class({
                     profit = profit * proVal;
                 }
             }
-            profit = profit * Math.pow(1.01, curManager[4]);
+            //总等级提升
+            profit = profit * (1 + 0.1 * curManager[4]);
         }
 
         //声望技能效果
